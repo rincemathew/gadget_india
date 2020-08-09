@@ -1,0 +1,37 @@
+<div class="top">
+    <div class=".container">
+        
+    </div>
+</div>
+
+<div class="search_bar">
+    <div class="container">
+        <form>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" [(ngModel)]="search_item" 
+            (ngModelChange)="charChange()"  [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let opt of movies" [value]="opt" (onSelectionChange)="selectMobile(opt.brand_name)">
+                {{opt.brand_name}}{{opt.mobile_name}}
+              </mat-option>
+            </mat-autocomplete>
+            <div class="input-group-btn">
+              <button class="btn btn-primary" (click)="searchButtonClick()" type="button">
+                <img src="/assets/icons/search-white-18dp.svg" class=imgser alt="search icon">
+              </button>
+            </div>
+          </div>
+        </form>
+    </div>   
+</div>
+<!-- search item listed in loop -->
+<div *ngFor='let mov of movies'>
+  <p>{{mov.brand_name}}</p>
+</div>
+
+
+<div class="menu">
+    <div class= containers>
+
+    </div>
+</div>

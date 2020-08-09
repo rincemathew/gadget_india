@@ -1,0 +1,27 @@
+.top {
+    height: 40px;
+    background: #E5E5E5;
+}
+.search_bar {
+    height: 120px;
+    left: 0px;
+    top: 40px;
+    background: #FFFFFF;
+}
+.menu {
+    height: 80px;
+    left: 0px;
+    top: 180px;
+    background: #0A223D;
+}
+.containers{
+    background-color:#e78629;
+    width: 80%;
+    display: flex;
+    padding: 10px;
+    margin: 0 auto;
+}
+.imgser{
+    width: 20dp;
+    height: 20px;
+}
