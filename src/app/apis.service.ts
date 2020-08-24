@@ -6,7 +6,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class ApisService {
 
-  baseUrl = 'http://127.0.0.1:8000/';
+  // baseUrl = 'http://127.0.0.1:8000/';
+  baseUrl = 'https://gadget-india.el.r.appspot.com/';
   searchUrl = 'mobiles/search/?search=';
   // headers = new HttpHeaders({
   //   'Content-Type': 'application/json',

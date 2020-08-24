@@ -3,10 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PhoneDetailsComponent } from './phone-details/phone-details.component';
 import { BottomDesignComponent } from './bottom-design/bottom-design.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
+  {path: '',component: MainPageComponent},
   {path: 'phone-details/:id',component: PhoneDetailsComponent},
-  {path: 'qa',component: BottomDesignComponent}
+
+  {path: '**',component: MainPageComponent},
+  
 ];
 
 @NgModule({

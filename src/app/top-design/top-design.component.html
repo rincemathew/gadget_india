@@ -1,14 +1,15 @@
+
 <div class="top">
-    <div class=".container">
+    <div class="container">
         
     </div>
 </div>
 
 <div class="search_bar">
-    <div class="container">
+    <div class="container search_box">
         <form>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="search" [(ngModel)]="search_item" 
+            <input type="text" class="form-control" placeholder="Search Mobiles" name="search" [(ngModel)]="search_item" 
             (ngModelChange)="charChange()"  [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let opt of movies" [value]="opt" (onSelectionChange)="selectMobile(opt.brand_name)">
@@ -25,13 +26,17 @@
     </div>   
 </div>
 <!-- search item listed in loop -->
-<div *ngFor='let mov of movies'>
+<!-- <div *ngFor='let mov of movies'>
   <p>{{mov.brand_name}}</p>
-</div>
+</div> -->
 
 
 <div class="menu">
-    <div class= containers>
-
-    </div>
+  <div class="container containers">
+  </div>
+  <div class="container d-flex flex-row bd-highlight mb-3">
+    <div class="menu_item_list p-2 bd-highlight">Flex item 1</div>
+    <div class="menu_item_list p-2 bd-highlight">Flex item 2</div>
+    <div class="menu_item_list p-2 bd-highlight">Flex item 3</div>
+  </div>
 </div>
