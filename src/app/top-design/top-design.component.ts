@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TopDesignComponent implements OnInit {
 
-  options: string[] = ['angular','react','vue']
-
-  movies;  //movies = [];
+  mobiles;  //mobiles = [];
   search_item = "";
 
   constructor(
@@ -39,7 +37,7 @@ export class TopDesignComponent implements OnInit {
   searchButtonClick(){
     this.apiService.get_search_result(this.search_item).subscribe(
       data=>{
-        this.movies = data;
+        this.mobiles = data;
       },
       error=>console.log(error)
       

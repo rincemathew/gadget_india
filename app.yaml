@@ -3,9 +3,11 @@ api_version: 1
 threadsafe: true
 handlers:
 - url: /
+  secure: always
   static_files: dist/indiangadget/index.html
   upload: dist/indiangadget/index.html
 - url: /
+  secure: always
   static_dir: dist/indiangadget
 
 skip_files:
@@ -18,3 +20,4 @@ skip_files:
   - ^(.*/)?.*\.md$
   - ^(.*/)?.*\.yaml$
   - ^LICENSE
+  

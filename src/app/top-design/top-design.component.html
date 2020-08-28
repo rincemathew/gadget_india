@@ -12,7 +12,7 @@
             <input type="text" class="form-control" placeholder="Search Mobiles" name="search" [(ngModel)]="search_item" 
             (ngModelChange)="charChange()"  [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let opt of movies" [value]="opt" (onSelectionChange)="selectMobile(opt.brand_name)">
+              <mat-option *ngFor="let opt of mobiles" [value]="opt" (onSelectionChange)="selectMobile(opt.brand_name)">
                 {{opt.brand_name}}{{opt.mobile_name}}
               </mat-option>
             </mat-autocomplete>
