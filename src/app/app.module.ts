@@ -7,7 +7,9 @@ import {ApisService} from './apis.service';
 
 import {HttpClientModule} from '@angular/common/http';
 
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+
+import { MobilesTabletsModule } from './mobiles-tablets/mobiles-tablets.module';
 
 import { AppComponent } from './app.component';
 import { TopDesignComponent } from './top-design/top-design.component';
@@ -33,6 +35,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     FormsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
+    MobilesTabletsModule,
     AppRoutingModule,
   ],
   providers: [

@@ -4,7 +4,7 @@
 }
 
 .search_bar {
-    left: 0px;
+    /* left: 0px; */
     background: #FFFFFF;
 }
 .form-control{
@@ -14,7 +14,7 @@
     width: 20dp;
     height: 20px;
 }
-.search_box{
+.search_container{
     margin-top: 40px;
     margin-bottom: 40px;
 }
