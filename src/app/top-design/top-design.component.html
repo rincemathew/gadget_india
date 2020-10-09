@@ -2,6 +2,7 @@
 
 <div class="top">
     <div class="container">
+      we are under development!! mail your thought to support@gadgetin.in
     </div>
 </div>
 
@@ -9,7 +10,7 @@
   <div class="container search_container">
     <div class="row">
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-    <img class="img-responsive" src="/assets/images/logo.png" alt="Chania">
+    <img class="img-responsive" src="/assets/images/logo.png" alt="gadgetin.in">
   </div>
     <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 col-xl-8">
         <form>
@@ -17,8 +18,14 @@
             <input type="text" class="form-control" placeholder="Search Mobiles" name="search" [(ngModel)]="search_item" 
             (ngModelChange)="charChange()"  [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let opt of mobiles" [value]="opt" (onSelectionChange)="selectMobile(opt.brand_name)">
-                {{opt.brand_name}}{{opt.mobile_name}}
+              <mat-option *ngFor="let opt of mobiles" [value]="opt" (onSelectionChange)="selectMobile(opt.mobileNames.brandName.brand_name,opt.mobileNames.mobile_name,opt.mobile_variants)">
+                <div class="row">
+                  <div class="col-auto">
+                  <img style="height: 50px; width:auto;" class="img-responsive" src="{{opt.mobileNames.mobile_image}}" alt="Chania"></div>
+                  <div class="col-auto">{{opt.mobileNames.brandName.brand_name}}  {{opt.mobileNames.mobile_name}}<br>
+                  <small>{{opt.mobile_variants}}</small></div>
+                  <div class="col-auto">{{opt.mobileGeneral.price}}</div>
+                </div>
               </mat-option>
             </mat-autocomplete>
             <div class="input-group-btn">
@@ -43,7 +50,7 @@
   </div>
   <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark">
-      <a class="navbar-brand d-md-none d-lg-none d-xl-none" href="#">Navbar</a>
+      <a class="navbar-brand d-md-none d-lg-none d-xl-none" routerLink="/">GadgetIn.in</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,22 +60,22 @@
             <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="phone-list/" routerLinkActive="active">Mobiles</a>
+            <a class="nav-link" routerLink="/phone-list" routerLinkActive="active">Mobiles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active">Tablets</a>
+            <a class="nav-link" routerLink="/phone-detailss" routerLinkActive="active">Tablets</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="phone-detail/" routerLinkActive="active">Reviews & News</a>
+            <a class="nav-link" routerLink="/phone-detail" routerLinkActive="active">Reviews & News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="phone-compare/" routerLinkActive="active">Compare Phones</a>
+            <a class="nav-link" routerLink="/phone-compare" routerLinkActive="active">Compare Phones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active">Headphones</a>
+            <a class="nav-link" routerLink="/phone-details/POCO/M2;variant=6%20GB%20RAM,%2064%20GB%20Storage" routerLinkActive="active">Headphones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="phone-details/" routerLinkActive="active">Wearables</a>
+            <a class="nav-link" routerLink="/phone-details" routerLinkActive="active">Wearables</a>
           </li>
         </ul>
       </div>

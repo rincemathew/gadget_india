@@ -9,6 +9,7 @@ export class ApisService {
   // baseUrl = 'http://127.0.0.1:8000/';
   baseUrl = 'https://gadget-india.el.r.appspot.com/';
   searchUrl = 'mobiles/search/?search=';
+  mobileDetails = 'mobiles/mobile/?';
   // headers = new HttpHeaders({
   //   'Content-Type': 'application/json',
   // })
@@ -20,5 +21,8 @@ export class ApisService {
     return this.httpClient.get(this.baseUrl+this.searchUrl+parm,);
   }
 
-  
+  //mobile detailed views
+  get_full_mobile_details(parm){
+    return this.httpClient.get(this.baseUrl+this.mobileDetails+parm,);
+  }
 }

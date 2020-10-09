@@ -5,11 +5,16 @@ import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
 import { PhoneCompareComponent } from './phone-compare/phone-compare.component';
 import { PhoneRoutingModule } from './phone-routing.module';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [PhoneListComponent, PhoneDetailComponent, PhoneCompareComponent],
   imports: [
     CommonModule,
-    PhoneRoutingModule
+    PhoneRoutingModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MobilesTabletsModule { }

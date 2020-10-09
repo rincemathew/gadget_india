@@ -38,15 +38,16 @@ export class TopDesignComponent implements OnInit {
     this.apiService.get_search_result(this.search_item).subscribe(
       data=>{
         this.mobiles = data;
+        console.log(this.mobiles)
       },
       error=>console.log(error)
       
     );
   }
 
-  selectMobile(arg){
-    this.router.navigate(['/phone-details',arg]);
-    console.log("item selected"+ arg)
+  selectMobile(brandName, mobileName, mobileVariant){
+    this.router.navigate(['/phone-details',brandName, mobileName,{variant:mobileVariant}]);
+    console.log("item selected"+ brandName + mobileName)
   }
 
 }

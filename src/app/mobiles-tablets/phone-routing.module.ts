@@ -9,7 +9,8 @@ import { PhoneListComponent } from './phone-list/phone-list.component';
 
 const routes: Routes = [
   {path: 'phone-list', component: PhoneListComponent},
-  {path: 'phone-detail',component: PhoneDetailComponent},
+  {path: 'phone-details/:brandName/:mobileName',component: PhoneDetailComponent},
+  // {path: 'phone-details',component: PhoneDetailComponent},
   {path: 'phone-compare',component: PhoneCompareComponent },
   
 ];

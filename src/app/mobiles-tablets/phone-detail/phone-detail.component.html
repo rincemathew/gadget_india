@@ -1,1 +1,16 @@
 <p>phone-detail works!</p>
+<mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'></mat-progress-spinner>
+
+<div class="main-color">
+    <div class="container">
+        <div>
+
+            <div *ngFor="let pho of phone">
+                <div>
+                    {{pho.mobile_variants}}
+                </div>
+            </div>
+            <!-- {{phone[0].mobile_variants+'bbgvgvgvg'}} -->
+        </div>
+    </div>
+</div>

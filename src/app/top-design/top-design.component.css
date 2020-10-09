@@ -49,3 +49,8 @@
     padding: 10px;
     margin: 0 auto;
 } */
+.mat-option {
+    height: unset;
+    line-height: unset;
+    padding: 5px;
+  }
