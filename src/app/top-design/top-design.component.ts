@@ -11,6 +11,7 @@ export class TopDesignComponent implements OnInit {
 
   mobiles;  //mobiles = [];
   search_item = "";
+  newvar;
 
   constructor(
     private apiService: ApisService,private router: Router

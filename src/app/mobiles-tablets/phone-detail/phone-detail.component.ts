@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import {ApisService} from '../../apis.service';
 import { ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-phone-detail',
@@ -16,9 +17,12 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
 
   vBrandName:String;
   vMobileName:String;
+  vVariant:String;
+  errorr:String;
+  vImageArrayNumber:number = 0;
 
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute ) { }
+  constructor(private apiService: ApisService, private route: ActivatedRoute,private _snackBar: MatSnackBar ) { }
 
 
   ngOnChanges() {
@@ -36,8 +40,9 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       this.isLoading = true;
       this.vBrandName = params.get('brandName')
       this.vMobileName = params.get('mobileName')
+      this.vVariant = params.get('variant')
       this.getValueParams = 'mobileNames__mobile_name='+this.vMobileName+'&mobileNames__brandName__brand_name='+ this.vBrandName
-    console.log(this.getValueParams+"bbbbbbb")
+    console.log(this.vVariant+"bbbbbbba")
     this.getPhoneDetails();
   });
   }
@@ -49,10 +54,26 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
         this.isLoading = false;
         console.log(this.phone)
       },
-      error=>{console.log(error)
+      error=>{
+        console.log(error)
+        // let snakeBarref = this._snackBar.open(error.message,"Reload",{duration: 50000});
+        let snakeBarref = this._snackBar.open("something went wrong, check your internet connection","Reload",{duration: 3000});
         this.isLoading = false;
+
+        snakeBarref.onAction().subscribe(()=>{
+          window.location.reload();
+        })
       }
       
     );
+  }
+  changeRight(){
+      this.vImageArrayNumber= this.vImageArrayNumber+1;
+    
+  }
+  changeLeft(){
+    
+    this.vImageArrayNumber= this.vImageArrayNumber-1;
+  
   }
 }

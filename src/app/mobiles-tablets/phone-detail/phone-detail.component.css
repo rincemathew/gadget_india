@@ -1,3 +1,14 @@
 .main-color{
     background-color: #F5FAFE;
 }
+.padding{
+    padding: 20px 0px 20px 0px;
+}
+.white-color{
+    background-color: white;
+    padding: 20px;
+}
+
+.svg-hover:hover {
+    filter: invert(66%) sepia(81%) saturate(5290%) hue-rotate(163deg) brightness(97%) contrast(101%);
+  }

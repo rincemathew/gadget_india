@@ -18,7 +18,8 @@
             <input type="text" class="form-control" placeholder="Search Mobiles" name="search" [(ngModel)]="search_item" 
             (ngModelChange)="charChange()"  [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let opt of mobiles" [value]="opt" (onSelectionChange)="selectMobile(opt.mobileNames.brandName.brand_name,opt.mobileNames.mobile_name,opt.mobile_variants)">
+            
+              <mat-option *ngFor="let opt of mobiles" [value]="opt.mobileNames.mobile_name" (onSelectionChange)="selectMobile(opt.mobileNames.brandName.brand_name,opt.mobileNames.mobile_name,opt.mobile_variants)">
                 <div class="row">
                   <div class="col-auto">
                   <img style="height: 50px; width:auto;" class="img-responsive" src="{{opt.mobileNames.mobile_image}}" alt="Chania"></div>
@@ -27,6 +28,7 @@
                   <div class="col-auto">{{opt.mobileGeneral.price}}</div>
                 </div>
               </mat-option>
+          
             </mat-autocomplete>
             <div class="input-group-btn">
               <button class="btn btn-primary" (click)="searchButtonClick()" type="button">
@@ -72,7 +74,7 @@
             <a class="nav-link" routerLink="/phone-compare" routerLinkActive="active">Compare Phones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/phone-details/POCO/M2;variant=6%20GB%20RAM,%2064%20GB%20Storage" routerLinkActive="active">Headphones</a>
+            <a class="nav-link" routerLink="/phone-details/POCO/M2;variant=6 GB RAM, 64 GB Storage" routerLinkActive="active">Headphones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/phone-details" routerLinkActive="active">Wearables</a>

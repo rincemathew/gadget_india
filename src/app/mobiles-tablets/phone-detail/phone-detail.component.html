@@ -1,16 +1,178 @@
-<p>phone-detail works!</p>
-<mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'></mat-progress-spinner>
-
 <div class="main-color">
+    <mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'>
+    </mat-progress-spinner>
     <div class="container">
-        <div>
+        
 
-            <div *ngFor="let pho of phone">
-                <div>
-                    {{pho.mobile_variants}}
+            
+                <div *ngFor="let pho of phone">
+                    <div *ngIf="pho.mobile_variants == vVariant">
+                        <div class="padding">
+                        <div class="white-color">
+                        <div class="row">
+                            <div class="col-8">
+                                <h1> {{pho.mobileNames.brandName.brand_name}} {{pho.mobileNames.mobile_name}}</h1>
+                            </div>
+                            <div class="col-4">
+                                <h1 style="float: right;">{{pho.mobileGeneral.price}}</h1>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="row d-flex justify-content-center">
+                                    <div style="padding-right: 0;" class="col-2 align-self-center">
+                                        <input type="image" class="img-fluid svg-hover"
+                                            src="/assets/icons/arrow-left.svg"
+                                            (click)="vImageArrayNumber==0 ? false : changeLeft()" alt="arrow left">
+                                    </div>
+                                    <div style="padding: 0;" class="col-8 d-flex justify-content-center"> <img
+                                            class="img-fluid" [src]="pho.variant_Image[vImageArrayNumber].variant_image"
+                                            alt="mobile image"></div>
+                                    <div style="padding-left: 0;" class="col-2 align-self-center">
+                                        <input type="image" class="img-fluid svg-hover"
+                                            src="/assets/icons/arrow-right.svg"
+                                            (click)="vImageArrayNumber==pho.variant_Image.length-1 ? false : changeRight()"
+                                            alt="arrow right">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="col-8 align-self-center">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div style="float: right;">
+                                            <mat-form-field appearance="fill">
+                                                <mat-select [(ngModel)]="vVariant">
+                                                    <mat-option *ngFor="let pho of phone" [value]="pho.mobile_variants">
+                                                        {{pho.mobile_variants}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+
+                                    <div class="d-flex justify-content-center align-self-center">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/ram.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        RAM<br><strong>{{pho.mobilePerformance.ram+'GB'}}</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/storage.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Storage<br><strong>{{pho.mobileStorage.device_storage+'GB'}}</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/processor.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Processor<br><strong>{{pho.mobilePerformance.processor}}</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/battery.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Battery<br><strong>{{pho.mobileBattery.battery_capacity+'mAh'}}</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/frontcam.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Front Camera<br><strong>{{pho.mobileCamera.secondary_camera+'MP'}}</strong></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/rearcam.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Rear Camera<br><strong>{{pho.mobileCamera.primary_camera+'MP'}}</strong></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/os.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        OS<br><strong>{{pho.mobileGeneral.os}}</strong></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/resolution.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Resolution<br><strong>{{pho.mobileDisplay.resolution}}</strong></div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                        <div class="padding">
+<div class="white-color">
+    {{pho.mobileDisplay.resolution}}<br>
+    {{pho.mobileDisplay.resolution}}<br>
+    {{pho.mobileDisplay.resolution}}<br>
+    {{pho.mobileDisplay.resolution}}<br>
+</div>
+</div>
+                        
+
+                  
             </div>
-            <!-- {{phone[0].mobile_variants+'bbgvgvgvg'}} -->
         </div>
+
+        <!-- <div class="padding">
+            
+        </div> -->
     </div>
 </div>
