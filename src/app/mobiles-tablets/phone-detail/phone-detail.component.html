@@ -2,13 +2,13 @@
     <mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'>
     </mat-progress-spinner>
     <div class="container">
-        
 
-            
-                <div *ngFor="let pho of phone">
-                    <div *ngIf="pho.mobile_variants == vVariant">
-                        <div class="padding">
-                        <div class="white-color">
+
+
+        <div *ngFor="let pho of phone">
+            <div *ngIf="pho.mobile_variants == vVariant">
+                <div class="padding">
+                    <div class="white-color">
                         <div class="row">
                             <div class="col-8">
                                 <h1> {{pho.mobileNames.brandName.brand_name}} {{pho.mobileNames.mobile_name}}</h1>
@@ -19,14 +19,15 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-4">
-                                <div class="row d-flex justify-content-center">
+                            <div class="col-4 align-self-center">
+                                <div class="row d-flex justify-content-center align-self-center">
                                     <div style="padding-right: 0;" class="col-2 align-self-center">
                                         <input type="image" class="img-fluid svg-hover"
                                             src="/assets/icons/arrow-left.svg"
                                             (click)="vImageArrayNumber==0 ? false : changeLeft()" alt="arrow left">
                                     </div>
-                                    <div style="padding: 0;" class="col-8 d-flex justify-content-center"> <img
+                                    <div style="padding: 0;"
+                                        class="col-8 d-flex justify-content-center align-self-center"> <img
                                             class="img-fluid" [src]="pho.variant_Image[vImageArrayNumber].variant_image"
                                             alt="mobile image"></div>
                                     <div style="padding-left: 0;" class="col-2 align-self-center">
@@ -76,7 +77,8 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Storage<br><strong>{{pho.mobileStorage.device_storage+'GB'}}</strong></div>
+                                                        Storage<br><strong>{{pho.mobileStorage.device_storage+'GB'}}</strong>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-3">
@@ -87,7 +89,8 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Processor<br><strong>{{pho.mobilePerformance.processor}}</strong></div>
+                                                        Processor<br><strong>{{pho.mobilePerformance.processor}}</strong>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-3">
@@ -98,7 +101,8 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Battery<br><strong>{{pho.mobileBattery.battery_capacity+'mAh'}}</strong></div>
+                                                        Battery<br><strong>{{pho.mobileBattery.battery_capacity+'mAh'}}</strong>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-3">
@@ -109,9 +113,11 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Front Camera<br><strong>{{pho.mobileCamera.secondary_camera+'MP'}}</strong></div>
+                                                        Front
+                                                        Camera<br><strong>{{pho.mobileCamera.secondary_camera+'MP'}}</strong>
+                                                    </div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="col-3">
                                                 <div class="row">
@@ -121,9 +127,11 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Rear Camera<br><strong>{{pho.mobileCamera.primary_camera+'MP'}}</strong></div>
+                                                        Rear
+                                                        Camera<br><strong>{{pho.mobileCamera.primary_camera+'MP'}}</strong>
+                                                    </div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="col-3">
                                                 <div class="row">
@@ -135,7 +143,7 @@
                                                     <div class="col-6 align-self-center">
                                                         OS<br><strong>{{pho.mobileGeneral.os}}</strong></div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="col-3">
                                                 <div class="row">
@@ -145,9 +153,10 @@
                                                             alt="processor">
                                                     </div>
                                                     <div class="col-6 align-self-center">
-                                                        Resolution<br><strong>{{pho.mobileDisplay.resolution}}</strong></div>
+                                                        Resolution<br><strong>{{pho.mobileDisplay.resolution}}</strong>
+                                                    </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -157,22 +166,402 @@
                         </div>
                     </div>
                 </div>
-                        <div class="padding">
-<div class="white-color">
-    {{pho.mobileDisplay.resolution}}<br>
-    {{pho.mobileDisplay.resolution}}<br>
-    {{pho.mobileDisplay.resolution}}<br>
-    {{pho.mobileDisplay.resolution}}<br>
-</div>
-</div>
-                        
+                <div class="padding">
+                    <div class="white-color">
+                        <h1>{{pho.mobileNames.brandName.brand_name+' '}}{{pho.mobileNames.mobile_name+' Full Specifications'}}</h1>
+                        <hr>
+                        <div class="row">
 
-                  
+                            <div class="col-4">
+                                <h2>Key Specs</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">RAM</th>
+                                            <td>{{pho.mobilePerformance.ram+' GB'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Memory</th>
+                                            <td>{{pho.mobileStorage.device_storage+' GB'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Processor</th>
+                                            <td>{{pho.mobilePerformance.processor_company}} {{' '+pho.mobilePerformance.processor}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Selfie camera</th>
+                                            <td>{{pho.mobileCamera.secondary_camera+' MP'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Rear camera</th>
+                                            <td>{{pho.mobileCamera.primary_camera+' MP'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Battery</th>
+                                            <td>{{pho.mobileBattery.battery_capacity+' mah'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Display Size</th>
+                                            <td>{{pho.mobileDisplay.screen_size+' inch'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>General</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Brand</th>
+                                            <td>{{pho.mobileNames.brandName.brand_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Model</th>
+                                            <td>{{pho.mobileNames.mobile_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">OS</th>
+                                            <td>{{pho.mobileGeneral.os}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">OS Version</th>
+                                            <td>{{pho.mobileGeneral.os_version}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">UI Version</th>
+                                            <td>{{pho.mobileGeneral.UI_version}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Release Date</th>
+                                            <td>{{pho.mobileGeneral.release_date | slice: 0:10}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Slots</th>
+                                            <td>{{pho.mobileGeneral.slots}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Weight</th>
+                                            <td>{{pho.mobileGeneral.weight+' g'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Colors</th>
+                                            <td *ngFor="let colo of pho.variant_Color"><pre>{{colo.mobile_color}}</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Dimensions</th>
+                                            <td>{{pho.mobileGeneral.dimensions}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Networks</th>
+                                            <td>{{'5G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES' : 'NO')}}
+                                                {{' ,4G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES' : 'NO')}}
+                                                {{' ,3G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].three_g==true ? 'YES' : 'NO')}}
+                                                {{' ,2G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].two_g==true ? 'YES' : 'NO')}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fingerprint Sensor</th>
+                                            <td>{{pho.mobileSensor.fingerprint_sensor==true ? 'YES' : 'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fast Charger</th>
+                                            <td>{{pho.mobileBattery.fast_charger==true ? 'YES': 'NO'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Performance</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">RAM</th>
+                                            <td>{{pho.mobilePerformance.ram +' GB'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Processor</th>
+                                            <td>{{pho.mobilePerformance.processor}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Processor Build</th>
+                                            <td>{{pho.mobilePerformance.processor_company}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Clock Speed</th>
+                                            <td>{{pho.mobilePerformance.clock_speed+' Hz'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Storage</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Device Storage</th>
+                                            <td>{{pho.mobileStorage.device_storage+' GB'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Expandable Memory</th>
+                                            <td>{{pho.mobileStorage.expandable_memory==true ? 'YES':'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Expandable Memory Capacity</th>
+                                            <td>{{pho.mobileStorage.expandable_memory_capacity +' GB'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">OTG_ Support</th>
+                                            <td>{{pho.mobileStorage.OTG_support}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Sim Slot Type</th>
+                                            <td>{{pho.mobileStorage.sim_slot_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Slots</th>
+                                            <td>{{pho.mobileGeneral.slots}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Camera</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Primary Camera</th>
+                                            <td>{{pho.mobileCamera.primary_camera_str}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Primary Cam Features</th>
+                                            <td>{{pho.mobileCamera.primary_camera_features}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Secondary Cam</th>
+                                            <td>{{pho.mobileCamera.secondary_camera_str}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Secondary Cam Features</th>
+                                            <td>{{pho.mobileCamera.secondary_camera_features}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Battery</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Capacity</th>
+                                            <td>{{pho.mobileBattery.battery_capacity+' mah'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Type</th>
+                                            <td>{{pho.mobileBattery.battery_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fast Charger</th>
+                                            <td>{{pho.mobileBattery.fast_charger==true ? 'YES':'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Charger Type</th>
+                                            <td>{{pho.mobileBattery.fast_charging}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Replacebale</th>
+                                            <td>{{pho.mobileBattery.replaceable==true ? 'YES':'NO'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Display</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Screen Size</th>
+                                            <td>{{pho.mobileDisplay.screen_size+' inch'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Resolution</th>
+                                            <td>{{pho.mobileDisplay.resolution}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Resolution Type</th>
+                                            <td>{{pho.mobileDisplay.resolution_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Display Type</th>
+                                            <td>{{pho.mobileDisplay.display_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">GPU</th>
+                                            <td>{{pho.mobileDisplay.GPU}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Other Features</th>
+                                            <td>{{pho.mobileDisplay.display_features}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Connectivity</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">USB Type C</th>
+                                            <td>{{pho.mobileConnectivity.USB_type_c==true ? 'YES': 'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">GPS</th>
+                                            <td>{{pho.mobileConnectivity.GPS==true?'YES':'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">SAR Value</th>
+                                            <td>{{pho.mobileConnectivity.SAR_value}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Audio Jack</th>
+                                            <td>{{pho.mobileConnectivity.audio_jack}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Bluetooth</th>
+                                            <td>{{pho.mobileConnectivity.bluetooth}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">WI-FI</th>
+                                            <td>{{pho.mobileConnectivity.wi_fi}}</td>
+                                        </tr>
+                                            <tr *ngFor="let connect of pho.mobileConnectivity.mobile_connectivity_details">
+                                                <th scope="row">{{connect.sim_name}}</th>
+                                                <td><b>SIM Type </b>{{connect.sim_type}}<br>
+                                                    <b>5 G </b>{{connect.five_g==true ? 'YES':'NO'}}<br>
+                                                    <b>VoLTE </b>{{connect.VoLTE==true ? 'YES':'NO'}}<br>
+                                                    <b>4 G </b>{{connect.four_g==true ? 'YES':'NO'}}<br>
+                                                    <b>3 G </b>{{connect.three_g==true ? 'YES':'NO'}}<br>
+                                                    <b>2 G </b>{{connect.two_g==true ? 'YES':'NO'}}</td>
+                                            </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Sensor</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Fingerprint Sensor</th>
+                                            <td>{{pho.mobileSensor.fingerprint_sensor==true ? 'YES':'NO'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Fingerprint Position</th>
+                                            <td>{{pho.mobileSensor.fingerprint_position}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Other Sensors</th>
+                                            <td>{{pho.mobileSensor.other_sensor}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-4">
+                                <h2>Other Features</h2>
+                            </div>
+                            <div class="col-8">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Other Features</th>
+                                            <td>{{pho.otherFeature.other_Feature}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">In the Box</th>
+                                            <td>{{pho.otherFeature.in_the_box}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="padding">
+                    <div class="white-color">
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                    </div>
+                </div>
+                <!-- <div class="padding">
+                    <div class="white-color">
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                        {{pho.mobileDisplay.resolution}}<br>
+                    </div>
+                </div> -->
+
+
+
             </div>
         </div>
 
-        <!-- <div class="padding">
-            
-        </div> -->
     </div>
 </div>
