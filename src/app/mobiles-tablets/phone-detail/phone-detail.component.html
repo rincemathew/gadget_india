@@ -543,10 +543,60 @@
                 </div>
                 <div class="padding">
                     <div class="white-color">
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
+                        <div  *ngFor="let colo of pho.variant_Color" >
+
+                        <div *ngIf="colo.mobile_color == vColor" class="row">
+                        <div class="col-12">
+                            <div style="float: right;">
+                                <mat-form-field appearance="fill">
+                                    <mat-select [(ngModel)]="vColor">
+                                        <mat-option *ngFor="let colo of pho.variant_Color" [value]="colo.mobile_color">
+                                            {{colo.mobile_color}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div>
+                                <div [ngClass]="colo.price_variant.flipkart==null?'d-none':''">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img class="img-fluid" src="/assets/images/flipkart.png" alt="flipkart">
+                                        </div>
+                                        <div class="col-4 d-flex justify-content-center align-self-center">
+                                            <h2>{{colo.price_variant.flipkart}}</h2>
+                                        </div>
+                                        <div class="col-4 d-flex justify-content-center align-self-center">
+                                            <button (click)="goToLink(colo.price_variant.flipkart_URL)" type="button" class="btn btn-primary">Check Out</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                    <div [ngClass]="colo.price_variant.amazon==null?'d-none':''">
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <img class="img-fluid" src="/assets/images/amazon.png" alt="flipkart">
+                                            </div>
+                                            <div class="col-4 d-flex justify-content-center align-self-center">
+                                                <h2>{{colo.price_variant.amazon}}</h2>
+                                            </div>
+                                            <div class="col-4 d-flex justify-content-center align-self-center">
+                                                <button (click)="goToLink(colo.price_variant.amazon_URL)" type="button" class="btn btn-primary">Check Out</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                               
+                                <div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                     </div>
                 </div>
                 <!-- <div class="padding">

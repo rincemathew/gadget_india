@@ -18,6 +18,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
   vBrandName:String;
   vMobileName:String;
   vVariant:String;
+  vColor;
   errorr:String;
   vImageArrayNumber:number = 0;
 
@@ -52,6 +53,8 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       data=>{
         this.phone = data;
         this.isLoading = false;
+        this.vColor = this.phone[0].variant_Color[0].mobile_color
+        // console.log(this.phone[0].variant_Color[0].mobile_color)
         console.log(this.phone)
       },
       error=>{
@@ -76,4 +79,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
     this.vImageArrayNumber= this.vImageArrayNumber-1;
   
   }
+  goToLink(url: string){
+    window.open(url, "_blank");
+}
 }
