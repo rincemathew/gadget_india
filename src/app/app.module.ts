@@ -14,7 +14,7 @@ import { MobilesTabletsModule } from './mobiles-tablets/mobiles-tablets.module';
 import { AppComponent } from './app.component';
 import { TopDesignComponent } from './top-design/top-design.component';
 import { BottomDesignComponent } from './bottom-design/bottom-design.component';
-import { PhoneDetailsComponent } from './phone-details/phone-details.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ArticlesModuleModule } from './articles-module/articles-module.module';
 
 
 // import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -32,7 +33,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppComponent,
     TopDesignComponent,
     BottomDesignComponent,
-    PhoneDetailsComponent,
     MainPageComponent
   ],
   imports: [
@@ -42,11 +42,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MobilesTabletsModule,
+    ArticlesModuleModule,
     AppRoutingModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-   
+    
 
   ],
   providers: [
