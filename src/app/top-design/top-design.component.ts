@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class TopDesignComponent implements OnInit {
 
+  mobile;
   mobiles;  //mobiles = [];
   search_item = "";
   newvar;
+  isLoading;
 
   constructor(
     private apiService: ApisService,private router: Router
@@ -28,6 +30,7 @@ export class TopDesignComponent implements OnInit {
     }
     else{
       this.searchButtonClick();
+      this.isLoading= true;
       console.log(this.search_item.length)
     }
     //console.log(this.search_item.length)
@@ -38,7 +41,9 @@ export class TopDesignComponent implements OnInit {
   searchButtonClick(){
     this.apiService.get_search_result(this.search_item).subscribe(
       data=>{
-        this.mobiles = data;
+        this.mobile = data;
+        this.mobiles =this.mobile.results
+        this.isLoading= false;
         console.log(this.mobiles)
       },
       error=>console.log(error)

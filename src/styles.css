@@ -5,3 +5,14 @@ html, body { height: 100%; margin: 0px;
     padding: 0px;
     overflow-x: hidden; }
 body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-color{
+    background-color: #F5FAFE;
+}
+.padding{
+    padding: 20px 0px 0px 0px;
+}
+.white-color{
+    background-color: white;
+    padding: 20px;
+}

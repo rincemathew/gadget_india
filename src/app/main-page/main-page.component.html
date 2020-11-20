@@ -1,3 +1,92 @@
-<div>
-<p>main-page works!</p>
+<div class="main-color">
+    <div class="container">
+        <div class="padding">
+            <div class="white-color">
+                dfvdfvdfvdf<br>
+                dfvdf<br>
+                dfvdfvdf<br>
+                fvdfvdfvdf<br>
+            </div>
+        </div>
+        <div class="padding">
+            <div class="white-color">
+                
+                <div class="pull-left mt-sm">
+                    <i class="icon-arrow-left pointer" (click)="scrollRig()"></i>
+                </div>
+                <div #widgetsContnt class="custom-slider-main">
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                    <div class="info-box">
+                        <img src="/assets/images/amazon.png" class="info-box">
+                    </div>
+                </div>
+                <div class="pull-right mt-sm">
+                    <button (click)="scrollRig()">bh</button>
+                    <i class="icon-arrow-right pointer" (click)="scrollRight()"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="padding">
+           
+
+            <div class="white-color d-flex">
+
+                <div class="leftImg align-self-center">
+                    <input type="image" class="img-fluid" src="/assets/icons/arrow-left.svg" (click)="scrollLeft()">
+                </div>
+                <div #widgetsContent class="custom-slider-main">
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/huawei.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/motorola.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/oppo.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'POCO'}"> <div class="info-box">
+                        <img src="/assets/images/poco.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/realme.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/samsung.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/vivo.png" class="info-box">
+                    </div></a>
+                    <div style="border-left: 1px solid black;height: 100%;" class="vl"></div>
+                    <a [routerLink]="['/phone-list']"> <div class="info-box">
+                        <img src="/assets/images/xiaomi.png" class="info-box">
+                    </div></a>
+                </div>
+                <div class="leftImg align-self-center">
+                    <input type="image" class="img-fluid" src="/assets/icons/arrow-right.svg" (click)="scrollRight()">
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

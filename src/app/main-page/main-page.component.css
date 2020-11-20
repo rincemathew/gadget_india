@@ -1,0 +1,15 @@
+.custom-slider-main{
+    display: flex;
+    overflow: hidden;    
+    scroll-behavior: smooth;
+}
+.leftImg{
+    float: left;
+    min-width: 40px;
+    height: 100%;
+}
+.rightImg{
+    float: right;
+    min-width: 40px;
+    height: 100%;
+}

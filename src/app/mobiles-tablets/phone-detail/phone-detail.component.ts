@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import {ApisService} from '../../apis.service';
+import { ApisService } from '../../apis.service';
 import { ActivatedRoute } from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-phone-detail',
@@ -11,75 +11,75 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class PhoneDetailComponent implements OnInit, OnChanges {
 
   phone;
-  getValueParams:String;
+  getValueParams: String;
 
   isLoading = false;
 
-  vBrandName:String;
-  vMobileName:String;
-  vVariant:String;
+  vBrandName: String;
+  vMobileName: String;
+  vVariant: String;
   vColor;
-  errorr:String;
-  vImageArrayNumber:number = 0;
+  errorr: String;
+  vImageArrayNumber: number = 0;
 
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute,private _snackBar: MatSnackBar ) { }
+  constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
 
   ngOnChanges() {
     // this.changeContent();
     // this.getPhoneDetails();
   }
-  
+
   ngOnInit() {
     this.changeContent();
   }
 
 
-  changeContent(){
+  changeContent() {
     this.route.paramMap.subscribe(params => {
       this.isLoading = true;
       this.vBrandName = params.get('brandName')
       this.vMobileName = params.get('mobileName')
       this.vVariant = params.get('variant')
-      this.getValueParams = 'mobileNames__mobile_name='+this.vMobileName+'&mobileNames__brandName__brand_name='+ this.vBrandName
-    console.log(this.vVariant+"bbbbbbba")
-    this.getPhoneDetails();
-  });
+      this.getValueParams = 'mobileNames__mobile_name=' + this.vMobileName + '&mobileNames__brandName__brand_name=' + this.vBrandName
+      console.log(this.vVariant + "bbbbbbba")
+      this.getPhoneDetails();
+    });
   }
-  getPhoneDetails(){
+  getPhoneDetails() {
     console.log('get phone details');
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
-      data=>{
+      data => {
         this.phone = data;
         this.isLoading = false;
         this.vColor = this.phone[0].variant_Color[0].mobile_color
         // console.log(this.phone[0].variant_Color[0].mobile_color)
         console.log(this.phone)
       },
-      error=>{
+      error => {
         console.log(error)
         // let snakeBarref = this._snackBar.open(error.message,"Reload",{duration: 50000});
-        let snakeBarref = this._snackBar.open("something went wrong, check your internet connection","Reload",{duration: 3000});
+        let snakeBarref = this._snackBar.open("something went wrong, check your internet connection", "Reload", { duration: 3000 });
         this.isLoading = false;
 
-        snakeBarref.onAction().subscribe(()=>{
+        snakeBarref.onAction().subscribe(() => {
           window.location.reload();
         })
       }
-      
+
     );
   }
-  changeRight(){
-      this.vImageArrayNumber= this.vImageArrayNumber+1;
-    
+  changeRight() {
+    this.vImageArrayNumber = this.vImageArrayNumber + 1;
+
   }
-  changeLeft(){
-    
-    this.vImageArrayNumber= this.vImageArrayNumber-1;
-  
+  changeLeft() {
+
+    this.vImageArrayNumber = this.vImageArrayNumber - 1;
+
   }
-  goToLink(url: string){
+  goToLink(url: string) {
     window.open(url, "_blank");
-}
+  }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApisService } from '../apis.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+latestMobiles;
+latestMobileParms;
+
+  constructor(
+    private apiService: ApisService,private router: Router
+  ) { }
 
   ngOnInit() {
+    // this.latestPhones();
+  }
+
+
+
+  latestPhones(){
+    this.apiService.get_mobile_details(this.latestMobileParms).subscribe(
+      data=>{
+        this.latestMobiles = data;
+        console.log(this.latestMobiles)
+      },
+      error=>console.log(error)  
+    );
+  }
+
+
+  
+  @ViewChild('widgetsContent',{static:false}) widgetsContent: ElementRef;
+  scrollLeft(){
+    this.widgetsContent.nativeElement.scrollLeft -= 150;
+  }
+  scrollRight(){
+    this.widgetsContent.nativeElement.scrollLeft += 150;
+  }
+  scrollRig(){
+    this.widgetsContent.nativeElement.scrollLeft += 150;
   }
 
 }
