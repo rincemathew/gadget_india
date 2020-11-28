@@ -2,7 +2,7 @@
 
 </div>
 <div class="bottom_color">
-    <div class="container">
+    <div class="container" style="padding-top: 20px;padding-bottom: 20px;">
 
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
@@ -10,31 +10,31 @@
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                Informations<br>
-                About us<br>
-                Contact Us<br>
-                Sitemap <br>
-                Privacy Policy<br>
-                Terms & Conditions<br>
+                <span style="font-size: 16px;">INFORMATIONS</span><br>
+                <a routerLink="/aboutus" style="color: #F5FAFE;">About us</a><br>
+                <a routerLink="/contactus" style="color: #F5FAFE;">Contact Us</a><br>
+                <a routerLink="/sitemap" style="color: #F5FAFE;">Sitemap</a><br>
+                <a routerLink="/privacypolicy" style="color: #F5FAFE;">Privacy Policy</a><br>
+                <a routerLink="/termsandconditions" style="color: #F5FAFE;">Terms & Conditions</a><br>
 
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                Search by Brand<br>
-                Oppo<br>
-                Vivo<br>
-                Samsung <br>
-                LG<br>
-                Xiaomi<br>
+                <span style="font-size: 16px;">SEARCH BY BRAND</span><br>
+                <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'oppo'}" style="color: #F5FAFE;">Oppo</a><br>
+                <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'Vivo'}" style="color: #F5FAFE;">Vivo</a><br>
+                <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'Samsung'}" style="color: #F5FAFE;">Samsung</a><br>
+                <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'LG'}" style="color: #F5FAFE;">LG</a><br>
+                <a [routerLink]="['/phone-list']" [queryParams]="{mobileNames__brandName__brand_name:'Xiaomi'}" style="color: #F5FAFE;">Xiaomi</a><br>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                Top 10 Mobiles<br>
-                Oppo<br>
-                Vivo<br>
-                Samsung <br>
-                LG<br>
-                Xiaomi<br>
+                <span style="font-size: 16px;">TOP MOBILES</span><br>
+                <a routerLink="/articles/Here is the full list of banned Chinese apps in India (Total of 219 apps)" style="color: #F5FAFE;">Ab</a><br>
+                <a routerLink="/" style="color: #F5FAFE;">Co</a><br>
+                <a routerLink="/" style="color: #F5FAFE;">Si</a><br>
+                <a routerLink="/" style="color: #F5FAFE;">Priv</a><br>
+                <a routerLink="/" style="color: #F5FAFE;">Ter</a><br>
             </div>
 
         </div>

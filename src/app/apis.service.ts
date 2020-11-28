@@ -10,7 +10,8 @@ export class ApisService {
   baseUrl = 'https://gadget-india.el.r.appspot.com/';
   searchUrl = 'mobiles/search/?search=';
   mobileDetail = 'mobiles/mobile/?';
-  mobileDetails = '/mobiles/mobiles/?';
+  mobileDetails = 'mobiles/mobiles/?';
+  articleDetails = 'articles/article/?';
   // headers = new HttpHeaders({
   //   'Content-Type': 'application/json',
   // })
@@ -29,6 +30,10 @@ export class ApisService {
 
   // main-page.component.ts
   get_mobile_details(parm){
-    return this.httpClient.get(this.baseUrl+this.mobileDetails,parm,);
+    return this.httpClient.get(this.baseUrl+this.mobileDetails+parm,);
+  }
+
+  get_article_details(parm){
+    return this.httpClient.get(this.baseUrl+this.articleDetails+parm,);
   }
 }

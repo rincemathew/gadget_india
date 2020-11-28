@@ -2,13 +2,19 @@ runtime: python27
 api_version: 1
 threadsafe: true
 handlers:
-- url: /
-  secure: always
+- url: /(.*\.(js|css|svg|png)(|\.map))$
+  static_files: dist/indiangadget/\1
+  upload: dist/indiangadget/(.*)(|\.map)
+- url: /.*
   static_files: dist/indiangadget/index.html
-  upload: dist/indiangadget/index.html
-- url: /
-  secure: always
-  static_dir: dist/indiangadget
+  upload: dist/indiangadget/.*
+# - url: /
+#   secure: always
+#   static_files: dist/indiangadget/index.html
+#   upload: dist/indiangadget/index.html
+# - url: /
+#   secure: always
+#   static_dir: dist/indiangadget
 
 skip_files:
   - e2e/

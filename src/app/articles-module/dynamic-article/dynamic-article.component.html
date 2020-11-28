@@ -1,1 +1,24 @@
-<p>dynamic-article works!</p>
+<div class="main-color">
+    <div class="container">
+        <div class="padding">
+            <div class="white-color"  style="min-height: 500px;">
+                <mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'>
+                </mat-progress-spinner>
+
+                <div>
+                    <div>
+                       <h1>{{vArticle?.article_name}}</h1> 
+                        Date:{{vArticle?.release_date}}<br>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img class="img-fluid img-thumbnail" [attr.src]="vArticle?.article_thumbnail" alt="gadgetin.in">
+                    </div>
+                    <div style="font-family: 'PT Serif', serif;" [innerHTML]="vArticle?.content"></div>
+                    <!-- {{vArticle.content}} -->
+                    <!-- {{vArticle[0].content}} -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

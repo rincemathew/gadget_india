@@ -13,8 +13,8 @@ export class PhoneListComponent implements OnInit {
 
   isLoading;
 
-  vBrandName;
-  vPhoneType;
+  vBrandName='';
+  vPhoneType='';
 
 
   getValueParams;
@@ -31,6 +31,10 @@ export class PhoneListComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.isLoading = true;
       this.vBrandName = params.get('mobileNames__brandName__brand_name')
+
+      // this.vBrandName = (this.vBrandName==null ? '':'')
+      if(this.vBrandName==null) {this.vBrandName = '';}
+
       this.getValueParams = 'mobileNames__brandName__brand_name=' + this.vBrandName + '&mobileNames__phone_type='+this.vPhoneType
       console.log(this.getValueParams + "bbbbbbba")
       this.getPhoneDetails();

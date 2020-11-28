@@ -7,10 +7,20 @@ import { StaticArticlesComponent } from './static-articles/static-articles.compo
 
 
 const routes: Routes = [
-  {path: 'articles', component: ArticlesListComponent},
-  {path: 'ggf/:brandName/:mobileName',component: DynamicArticleComponent},
-  // {path: 'phone-details',component: PhoneDetailComponent},
-  {path: 'bgggh',component: StaticArticlesComponent },
+  {
+    path: 'articles', 
+    children:[
+      {
+        path: '',
+        component: ArticlesListComponent
+      },
+      {
+        path: ':articleName',
+        component: DynamicArticleComponent
+      }
+    ]
+  },
+  {path: ':articleName',component: StaticArticlesComponent },
 ];
 
 @NgModule({
