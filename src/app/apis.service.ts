@@ -12,6 +12,7 @@ export class ApisService {
   mobileDetail = 'mobiles/mobile/?';
   mobileDetails = 'mobiles/mobiles/?';
   articleDetails = 'articles/article/?';
+  list_articles = 'articles/listarticles/?';
   // headers = new HttpHeaders({
   //   'Content-Type': 'application/json',
   // })
@@ -35,5 +36,8 @@ export class ApisService {
 
   get_article_details(parm){
     return this.httpClient.get(this.baseUrl+this.articleDetails+parm,);
+  }
+  get_list_articles(parm){
+    return this.httpClient.get(this.baseUrl+this.list_articles+parm,);
   }
 }

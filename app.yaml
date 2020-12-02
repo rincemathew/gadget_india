@@ -3,9 +3,11 @@ api_version: 1
 threadsafe: true
 handlers:
 - url: /(.*\.(js|css|svg|png)(|\.map))$
+  secure: always
   static_files: dist/indiangadget/\1
   upload: dist/indiangadget/(.*)(|\.map)
 - url: /.*
+  secure: always
   static_files: dist/indiangadget/index.html
   upload: dist/indiangadget/.*
 # - url: /

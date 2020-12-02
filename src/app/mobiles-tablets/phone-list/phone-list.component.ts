@@ -15,6 +15,8 @@ export class PhoneListComponent implements OnInit {
 
   vBrandName='';
   vPhoneType='';
+  vPriceGreater='';
+  vPriceLess='';
 
 
   getValueParams;
@@ -31,11 +33,17 @@ export class PhoneListComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.isLoading = true;
       this.vBrandName = params.get('mobileNames__brandName__brand_name')
+      this.vPhoneType = params.get('mobileNames__phone_type')
+      this.vPriceGreater = params.get('mobileGeneral__price__gte')
+      this.vPriceLess = params.get('mobileGeneral__price__lte')
 
       // this.vBrandName = (this.vBrandName==null ? '':'')
       if(this.vBrandName==null) {this.vBrandName = '';}
+      if(this.vPhoneType==null) {this.vPhoneType = '';}
+      if(this.vPriceGreater==null) {this.vPriceGreater = '';}
+      if(this.vPriceLess==null) {this.vPriceLess = '';}
 
-      this.getValueParams = 'mobileNames__brandName__brand_name=' + this.vBrandName + '&mobileNames__phone_type='+this.vPhoneType
+      this.getValueParams = 'mobileNames__brandName__brand_name=' + this.vBrandName + '&mobileNames__phone_type='+this.vPhoneType+'&mobileGeneral__price__gte='+this.vPriceGreater +'&mobileGeneral__price__lte='+this.vPriceLess
       console.log(this.getValueParams + "bbbbbbba")
       this.getPhoneDetails();
     });
