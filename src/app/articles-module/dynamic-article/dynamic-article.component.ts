@@ -26,7 +26,7 @@ export class DynamicArticleComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.isLoading = true;
       this.vArticleName = params.get('articleName')
-      this.getValueParams = 'article_name=' + this.vArticleName
+      this.getValueParams = 'article_name_url=' + this.vArticleName
       // console.log(this.vArticleName + "bbbbbbba")
       this.getFullArticle();
     });
