@@ -6,7 +6,7 @@
 
 
         <div *ngFor="let pho of phone">
-            <div *ngIf="pho.mobile_variants == vVariant">
+            <div *ngIf="pho.mobile_variants_url == vVariant">
                 <div class="padding">
                     <div class="white-color">
                         <div class="row">
@@ -46,7 +46,7 @@
                                         <div style="float: right;">
                                             <mat-form-field appearance="fill">
                                                 <mat-select [(ngModel)]="vVariant">
-                                                    <mat-option *ngFor="let pho of phone" [value]="pho.mobile_variants">
+                                                    <mat-option *ngFor="let pho of phone" [value]="pho.mobile_variants_url">
                                                         {{pho.mobile_variants}}
                                                     </mat-option>
                                                 </mat-select>

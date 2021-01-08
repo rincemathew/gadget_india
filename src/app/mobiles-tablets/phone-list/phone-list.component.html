@@ -145,17 +145,17 @@
             </div>
             
         </div>
-        <div *ngIf='objectRecived.count>=14'>
+        <div *ngIf='countt>=11'>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center" style="margin: 0;">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  <li class="page-item">
+                    <a class="page-link" [class.disabled]="objectRecived.previous==null?true:false" (click)="previous(objectRecived.previous)" tabindex="-1">Previous</a>
                   </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item disabled"><a class="page-link">{{navigationpagenumber}}</a></li>
                   <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li> -->
                   <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link" [class.disabled]="objectRecived.next==null?true:false" (click)="next(objectRecived.next)" >Next</a>
                   </li>
                 </ul>
               </nav>

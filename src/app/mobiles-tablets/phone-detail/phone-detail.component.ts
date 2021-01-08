@@ -42,7 +42,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       this.vBrandName = params.get('brandName')
       this.vMobileName = params.get('mobileName')
       this.vVariant = params.get('variant')
-      this.getValueParams = 'mobileNames__mobile_name=' + this.vMobileName + '&mobileNames__brandName__brand_name=' + this.vBrandName
+      this.getValueParams = 'mobileNames__mobile_name_url=' + this.vMobileName + '&mobileNames__brandName__brand_name_url=' + this.vBrandName
       console.log(this.vVariant + "bbbbbbba")
       this.getPhoneDetails();
     });

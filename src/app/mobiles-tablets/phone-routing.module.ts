@@ -8,10 +8,10 @@ import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
 import { PhoneListComponent } from './phone-list/phone-list.component';
 
 const routes: Routes = [
-  {path: 'phone-list', component: PhoneListComponent},
-  {path: 'phone-details/:brandName/:mobileName',component: PhoneDetailComponent},
+  {path: 'find-a-phone', component: PhoneListComponent},
+  {path: ':brandName/:mobileName',component: PhoneDetailComponent},
   // {path: 'phone-details',component: PhoneDetailComponent},
-  {path: 'phone-compare',component: PhoneCompareComponent },
+  {path: 'compare-phone',component: PhoneCompareComponent },
   
 ];
 @NgModule({

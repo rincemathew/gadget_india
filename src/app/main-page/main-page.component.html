@@ -8,7 +8,7 @@
                             <h1>Latest Phones</h1>
                         </div>
                         <div style="float: right;">
-                            <a [routerLink]="['/phone-list']"
+                            <a [routerLink]="['/find-a-phone']"
                             [queryParams]="{mobileNames__phone_type:'SMARTPHONE'}">View more..</a>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                                 <div *ngFor="let phones of latestMobiles">
                                     <div style="padding: 16px; margin: 16px;" class="border">
                                         <a
-                                            [routerLink]="['/phone-details/'+phones.mobileNames.brandName.brand_name+'/'+phones.mobileNames.mobile_name,{variant:phones.mobile_variants}]">
+                                            [routerLink]="['/'+phones.mobileNames.brandName.brand_name_url+'/'+phones.mobileNames.mobile_name_url,{variant:phones.mobile_variants_url}]">
                                             <div class="d-flex justify-content-center">
                                                 <img style="max-height: 200px;" [src]="phones.mobileNames.mobile_image">
                                             </div>
@@ -64,7 +64,7 @@
                             <h1>Budget Phones</h1>
                         </div>
                         <div style="float: right;">
-                            <a [routerLink]="['/phone-list']"
+                            <a [routerLink]="['/find-a-phone']"
                                 [queryParams]="{mobileNames__phone_type:'SMARTPHONE',mobileGeneral__price__gte:'9000',
                                 mobileGeneral__price__lte:'11500'}">View more..</a>
                         </div>
@@ -81,7 +81,7 @@
                                 <div *ngFor="let bphones of budgetMobiles">
                                     <div style="padding: 16px; margin: 16px;" class="border">
                                         <a
-                                            [routerLink]="['/phone-details/'+bphones.mobileNames.brandName.brand_name+'/'+bphones.mobileNames.mobile_name,{variant:bphones.mobile_variants}]">
+                                            [routerLink]="['/'+bphones.mobileNames.brandName.brand_name_url+'/'+bphones.mobileNames.mobile_name_url,{variant:bphones.mobile_variants_url}]">
                                             <div class="d-flex justify-content-center">
                                                 <img style="max-height: 200px;"
                                                     [src]="bphones.mobileNames.mobile_image">
@@ -123,7 +123,7 @@
                         </div>
                         <div style="float: right;">
                             <a
-                                [routerLink]="['/articles/Here%20is%20the%20full%20list%20of%20banned%20Chinese%20apps%20in%20India%20%28Total%20of%20219%20apps%29']">View
+                                [routerLink]="['/articles/here-is-the-full-list-of-banned-chinese-apps-in-india']">View
                                 more..</a>
                         </div>
                     </div>

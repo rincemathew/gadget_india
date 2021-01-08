@@ -11,7 +11,7 @@ import { ApisService } from 'src/app/apis.service';
 export class PhoneListComponent implements OnInit {
 
 
-  isLoading;
+  isLoading=false;
 
   vBrandName='';
   vPhoneType='';
@@ -23,6 +23,9 @@ export class PhoneListComponent implements OnInit {
   objectRecived;
   phoneList;
 
+  navigationpagenumber=1;
+  countt;
+
   constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -31,7 +34,9 @@ export class PhoneListComponent implements OnInit {
 
   changeContent() {
     this.route.queryParamMap.subscribe(params => {
+      console.log(this.isLoading)
       this.isLoading = true;
+      console.log(this.isLoading)
       this.vBrandName = params.get('mobileNames__brandName__brand_name')
       this.vPhoneType = params.get('mobileNames__phone_type')
       this.vPriceGreater = params.get('mobileGeneral__price__gte')
@@ -52,8 +57,10 @@ export class PhoneListComponent implements OnInit {
     this.apiService.get_mobile_details(this.getValueParams).subscribe(
       data => {
         this.objectRecived = data;
+        this.countt = this.objectRecived.count;
         this.phoneList = this.objectRecived.results
         this.isLoading = false;
+        console.log(this.isLoading)
         console.log(this.objectRecived)
       },
       error => {
@@ -68,4 +75,23 @@ export class PhoneListComponent implements OnInit {
 
     );
   }
+  previous(parms){
+    this.route.queryParamMap.subscribe(params => {
+      this.isLoading = true;
+      this.navigationpagenumber--;
+      this.getValueParams = parms
+      console.log(this.getValueParams + "bbbbbbba")
+      this.getPhoneDetails();
+    });
+  }
+  next(parms){
+    this.route.queryParamMap.subscribe(params => {
+      this.isLoading = true;
+      this.navigationpagenumber++;
+      this.getValueParams = parms
+      console.log(this.getValueParams + "bbbbbbba")
+      this.getPhoneDetails();
+    });
+  }
+
 }

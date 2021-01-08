@@ -17,9 +17,15 @@ const routes: Routes = [
       {
         path: ':articleName',
         component: DynamicArticleComponent
-      }
+      },
+      {
+        path: ':articleName/:fdfdf',
+        component: StaticArticlesComponent
+      },
     ]
   },
+  // {path: 'articles',component: ArticlesListComponent },
+  // {path: 'articles/:articleName',component: DynamicArticleComponent },
   {path: ':articleName',component: StaticArticlesComponent },
 ];
 
