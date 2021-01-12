@@ -12,7 +12,7 @@
                         <div class="col-8 d-flex justify-content-center align-self-center">
                             <div class="row">
                                 <div class="col-12">
-                                    <a [routerLink]="['/phone-details',mobiles.mobileNames.brandName.brand_name, mobiles.mobileNames.mobile_name,{variant:mobiles.mobile_variants}]">
+                                    <a [routerLink]="['/',mobiles.mobileNames.brandName.brand_name_url, mobiles.mobileNames.mobile_name_url,{variant:mobiles.mobile_variants_url}]">
                                     <div style="float: left;">
                                         <h1>{{mobiles.mobileNames.brandName.brand_name}}
                                             {{mobiles.mobileNames.mobile_name}}</h1>
@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div style="float: right;">
-                                        <a [routerLink]="['/phone-details',mobiles.mobileNames.brandName.brand_name, mobiles.mobileNames.mobile_name,{variant:mobiles.mobile_variants}]">
+                                        <a [routerLink]="['/',mobiles.mobileNames.brandName.brand_name_url, mobiles.mobileNames.mobile_name_url,{variant:mobiles.mobile_variants_url}]">
                                         <h3>See Full Spec...</h3>
                                     </a>
                                     </div>

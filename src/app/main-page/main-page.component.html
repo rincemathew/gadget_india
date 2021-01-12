@@ -139,7 +139,7 @@
                             <div #ArticleNews class="custom-slider-main">
                                 <div *ngFor="let articleandnews of articleNews">
                                     <div style="padding: 16px; margin: 16px;" class="border">
-                                        <a [routerLink]="['/articles/'+articleandnews.article_name_url]">
+                                        <a [routerLink]="['/articles/',articleandnews.article_name_url]">
                                             <div class="d-flex justify-content-center">
                                                 <img style="max-height: 200px;"
                                                     [src]="articleandnews.article_thumbnail">

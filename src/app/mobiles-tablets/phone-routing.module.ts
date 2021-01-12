@@ -9,9 +9,11 @@ import { PhoneListComponent } from './phone-list/phone-list.component';
 
 const routes: Routes = [
   {path: 'find-a-phone', component: PhoneListComponent},
+  {path: 'compare-phone',component: PhoneCompareComponent },
+  // {path: ':otherLinks',component: PhoneDetailComponent },
   {path: ':brandName/:mobileName',component: PhoneDetailComponent},
   // {path: 'phone-details',component: PhoneDetailComponent},
-  {path: 'compare-phone',component: PhoneCompareComponent },
+  
   
 ];
 @NgModule({

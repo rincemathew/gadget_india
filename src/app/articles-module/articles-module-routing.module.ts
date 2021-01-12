@@ -18,15 +18,19 @@ const routes: Routes = [
         path: ':articleName',
         component: DynamicArticleComponent
       },
-      {
-        path: ':articleName/:fdfdf',
-        component: StaticArticlesComponent
-      },
+      // {
+      //   path: 'article',
+      //   component: StaticArticlesComponent
+      // },
+      // {
+      //   path: ':articleType/:articleName',
+      //   component: DynamicArticleComponent
+      // },
     ]
   },
   // {path: 'articles',component: ArticlesListComponent },
   // {path: 'articles/:articleName',component: DynamicArticleComponent },
-  {path: ':articleName',component: StaticArticlesComponent },
+  {path: 'a/:articleName',component: StaticArticlesComponent },
 ];
 
 @NgModule({

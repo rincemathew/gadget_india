@@ -10,9 +10,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UrlPhoneListComponent } from './url-phone-list/url-phone-list.component';
 
 @NgModule({
-  declarations: [PhoneListComponent, PhoneDetailComponent, PhoneCompareComponent],
+  declarations: [PhoneListComponent, PhoneDetailComponent, PhoneCompareComponent, UrlPhoneListComponent],
   imports: [
     CommonModule,
     PhoneRoutingModule,

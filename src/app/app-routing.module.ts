@@ -5,7 +5,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   {path: '',component: MainPageComponent},
-  {path: 'phone-detailss',component: MainPageComponent},
+  // {path: 'phone-detailss',component: MainPageComponent},
   // {path: 'phone-details/:id',component: PhoneDetailsComponent},
 
   // {path: 'phone',loadChildren: 'app/mobiles-tablets/mobiles-tablets.module#MobilesTabletsModule'},
