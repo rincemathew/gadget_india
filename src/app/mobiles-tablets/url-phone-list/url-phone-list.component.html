@@ -1,1 +1,164 @@
-<p>url-phone-list works!</p>
+<div class="main-color">
+    <div class="container">
+        <div class="padding">
+            <div class="white-color"  style="min-height: 500px;">
+                <mat-progress-spinner style="margin:0 auto;" *ngIf="isLoading" mode='indeterminate' value='20'>
+                </mat-progress-spinner>
+                <div *ngFor="let mobiles of phoneList">
+                    <div class="row">
+                        <div class="col-4 d-flex justify-content-center align-self-center">
+                            <img class="img-fluid" [src]="mobiles.mobileNames.mobile_image" alt="mobile image">
+                        </div>
+                        <div class="col-8 d-flex justify-content-center align-self-center">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a [routerLink]="['/',mobiles.mobileNames.brandName.brand_name_url, mobiles.mobileNames.mobile_name_url,{variant:mobiles.mobile_variants_url}]">
+                                    <div style="float: left;">
+                                        <h1>{{mobiles.mobileNames.brandName.brand_name}}
+                                            {{mobiles.mobileNames.mobile_name}}</h1>
+                                        <p>{{mobiles.mobile_variants}}</p>
+                                    </div>
+                                    <div style="float: right;">
+                                        <h1>{{mobiles.mobileGeneral.price}}</h1>
+                                    </div>
+                                </a>
+                                </div>
+
+                                <div class="col-12">
+
+                                    <div class="d-flex justify-content-center align-self-center">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/ram.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        RAM<br><strong>{{mobiles.mobilePerformance.ram+'GB'}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/storage.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Storage<br><strong>{{mobiles.mobileStorage.device_storage+'GB'}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/processor.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Processor<br><strong>{{mobiles.mobilePerformance.processor}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/battery.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Battery<br><strong>{{mobiles.mobileBattery.battery_capacity+'mAh'}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/frontcam.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Front
+                                                        Camera<br><strong>{{mobiles.mobileCamera.secondary_camera+'MP'}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/rearcam.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Rear
+                                                        Camera<br><strong>{{mobiles.mobileCamera.primary_camera+'MP'}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/os.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        OS<br><strong>{{mobiles.mobileGeneral.os}}</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-center"
+                                                        style="padding-right: 0;">
+                                                        <img class="img-fluid" src="/assets/icons/resolution.svg"
+                                                            alt="processor">
+                                                    </div>
+                                                    <div class="col-6 align-self-center">
+                                                        Resolution<br><strong>{{mobiles.mobileDisplay.resolution}}</strong>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+                                    <div style="float: right;">
+                                        <a [routerLink]="['/',mobiles.mobileNames.brandName.brand_name_url, mobiles.mobileNames.mobile_name_url,{variant:mobiles.mobile_variants_url}]">
+                                        <h3>See Full Spec...</h3>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf='countt>=11'>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center" style="margin: 0;">
+                  <li class="page-item">
+                    <a class="page-link" [class.disabled]="objectRecived.previous==null?true:false" (click)="previous(objectRecived.previous)" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item disabled"><a class="page-link">{{navigationpagenumber}}</a></li>
+                  <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                  <li class="page-item">
+                    <a class="page-link" [class.disabled]="objectRecived.next==null?true:false" (click)="next(objectRecived.next)" >Next</a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+</div>

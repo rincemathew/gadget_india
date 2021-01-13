@@ -52,7 +52,7 @@ export class TopDesignComponent implements OnInit {
   }
 
   selectMobile(brandName, mobileName, mobileVariant){
-    this.router.navigate(['/phone-details',brandName, mobileName,{variant:mobileVariant}]);
+    this.router.navigate(['/',brandName, mobileName,{variant:mobileVariant}]);
     console.log("item selected"+ brandName + mobileName)
   }
 

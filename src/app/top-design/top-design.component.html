@@ -21,7 +21,7 @@
               <mat-autocomplete #auto="matAutocomplete">
 
                 <mat-option *ngFor="let opt of mobiles" [value]="opt.mobileNames.mobile_name"
-                  (onSelectionChange)="selectMobile(opt.mobileNames.brandName.brand_name,opt.mobileNames.mobile_name,opt.mobile_variants)">
+                  (onSelectionChange)="selectMobile(opt.mobileNames.brandName.brand_name_url,opt.mobileNames.mobile_name_url,opt.mobile_variants_url)">
                   <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
                   <div class="row">
                     <div class="col-auto">
@@ -68,13 +68,13 @@
                 [routerLinkActiveOptions]="{exact : true}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/phone-list']" [queryParams]="{mobileNames__phone_type:'SMARTPHONE'}" routerLinkActive="active">Mobiles</a>
+              <a class="nav-link" [routerLink]="['/find-a-phone']" [queryParams]="{mobileNames__phone_type:'SMARTPHONE'}" routerLinkActive="active">Mobiles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/phone-list']" [queryParams]="{mobileNames__phone_type:'TABLET'}" routerLinkActive="active">Tablets</a>
+              <a class="nav-link" [routerLink]="['/find-a-phone']" [queryParams]="{mobileNames__phone_type:'TABLET'}" routerLinkActive="active">Tablets</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/articles/Here%20is%20the%20full%20list%20of%20banned%20Chinese%20apps%20in%20India%20%28Total%20of%20219%20apps%29']" routerLinkActive="active">Reviews & News</a>
+              <a class="nav-link" [routerLink]="['/articles/here-is-the-full-list-of-banned-chinese-apps-in-india']" routerLinkActive="active">Reviews & News</a>
             </li>
             <li class="nav-item">
               <a class="nav-link  disabled" routerLink="/phone-compare" routerLinkActive="active">Compare Phones</a>
