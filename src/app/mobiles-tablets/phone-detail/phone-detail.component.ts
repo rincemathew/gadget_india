@@ -42,6 +42,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       this.vBrandName = params.get('brandName')
       this.vMobileName = params.get('mobileName')
       this.vVariant = params.get('variant')
+      console.log(this.vVariant)
       this.getValueParams = 'mobileNames__mobile_name_url=' + this.vMobileName + '&mobileNames__brandName__brand_name_url=' + this.vBrandName
       console.log(this.vVariant + "bbbbbbba")
       this.getPhoneDetails();
@@ -52,6 +53,10 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
       data => {
         this.phone = data;
+        if (this.vVariant==null){
+          this.vVariant = this.phone[0].mobile_variants_url
+          console.log(this.vVariant)
+        }
         this.isLoading = false;
         this.vColor = this.phone[0].variant_Color[0].mobile_color
         // console.log(this.phone[0].variant_Color[0].mobile_color)
