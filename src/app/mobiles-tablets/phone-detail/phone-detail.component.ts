@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { ApisService } from '../../apis.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-phone-detail',
@@ -23,7 +24,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
   vImageArrayNumber: number = 0;
 
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
+  constructor(private titleService: Title, private metaService: Meta, private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
 
   ngOnChanges() {
@@ -42,6 +43,8 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       this.vBrandName = params.get('brandName')
       this.vMobileName = params.get('mobileName')
       this.vVariant = params.get('variant')
+      this.titleService.setTitle("Get full details of "+this.vBrandName+" "+this.vMobileName+" | gadgetin.in")
+      this.metaService.addTag({name: 'description', content: "Get full details of "+this.vBrandName+" "+this.vMobileName+". Check out full specifications, news, reviews and compare with other phones | gadgetin.in"})
       console.log(this.vVariant)
       this.getValueParams = 'mobileNames__mobile_name_url=' + this.vMobileName + '&mobileNames__brandName__brand_name_url=' + this.vBrandName
       console.log(this.vVariant + "bbbbbbba")

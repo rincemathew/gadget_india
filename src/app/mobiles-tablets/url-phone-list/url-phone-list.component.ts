@@ -1,6 +1,7 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApisService } from 'src/app/apis.service';
 
@@ -13,21 +14,36 @@ export class UrlPhoneListComponent implements OnInit {
 
  
   urls=[
-    {urlname:"apple",querypa:"mobileNames__brandName__brand_name=Apple",mainhead:"Apple"},
-    {urlname:"google",querypa:"mobileNames__brandName__brand_name=Google",mainhead:"Google"},
-    {urlname:"honor",querypa:"mobileNames__brandName__brand_name=Honor",mainhead:"Honor"},
-    {urlname:"huawei",querypa:"mobileNames__brandName__brand_name=Huawei",mainhead:"Huawei"},
-    {urlname:"lg",querypa:"mobileNames__brandName__brand_name=LG",mainhead:"LG"},
-    {urlname:"micromax",querypa:"mobileNames__brandName__brand_name=Micromax",mainhead:"Micromax"},
-    {urlname:"motorola",querypa:"mobileNames__brandName__brand_name=Motorola",mainhead:"Motorola"},
-    {urlname:"nokia",querypa:"mobileNames__brandName__brand_name=Nokia",mainhead:"Nokia"},
-    {urlname:"oneplus",querypa:"mobileNames__brandName__brand_name=OnePlus",mainhead:"OnePlus"},
-    {urlname:"oppo",querypa:"mobileNames__brandName__brand_name=oppo",mainhead:"oppo"},
-    {urlname:"poco",querypa:"mobileNames__brandName__brand_name=POCO",mainhead:"POCO"},
-    {urlname:"realme",querypa:"mobileNames__brandName__brand_name=Realme",mainhead:"Realme"},
-    {urlname:"samsung",querypa:"mobileNames__brandName__brand_name=Samsung",mainhead:"Samsung"},
-    {urlname:"vivo",querypa:"mobileNames__brandName__brand_name=Vivo",mainhead:"Vivo"},
-    {urlname:"xiaomi",querypa:"mobileNames__brandName__brand_name=Xiaomi",mainhead:"Xiaomi"},
+    {urlname:"apple",querypa:"mobileNames__brandName__brand_name=Apple",mainhead:"Apple",title:"Get the full list of Apple phones",
+    descr:"Looking for Apple phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"google",querypa:"mobileNames__brandName__brand_name=Google",mainhead:"Google",title:"Get the full list of Google phones",
+    descr:"Looking for Google phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"honor",querypa:"mobileNames__brandName__brand_name=Honor",mainhead:"Honor",title:"Get the full list of Honor phones",
+    descr:"Looking for Honor phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"huawei",querypa:"mobileNames__brandName__brand_name=Huawei",mainhead:"Huawei",title:"Get the full list of Huawei phones",
+    descr:"Looking for Huawei phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"lg",querypa:"mobileNames__brandName__brand_name=LG",mainhead:"LG",title:"Get the full list of LG phones",
+    descr:"Looking for LG phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"micromax",querypa:"mobileNames__brandName__brand_name=Micromax",mainhead:"Micromax",title:"Get the full list of Micromax phones",
+    descr:"Looking for Micromax phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"motorola",querypa:"mobileNames__brandName__brand_name=Motorola",mainhead:"Motorola",title:"Get the full list of Motorola phones",
+    descr:"Looking for Motorola phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"nokia",querypa:"mobileNames__brandName__brand_name=Nokia",mainhead:"Nokia",title:"Get the full list of Nokia phones",
+    descr:"Looking for Nokia phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"oneplus",querypa:"mobileNames__brandName__brand_name=OnePlus",mainhead:"OnePlus",title:"Get the full list of OnePlus phones",
+    descr:"Looking for OnePlus phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"oppo",querypa:"mobileNames__brandName__brand_name=oppo",mainhead:"oppo",title:"Get the full list of Oppo phones",
+    descr:"Looking for Oppo phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"poco",querypa:"mobileNames__brandName__brand_name=POCO",mainhead:"POCO",title:"Get the full list of POCO phones",
+    descr:"Looking for POCO phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"realme",querypa:"mobileNames__brandName__brand_name=Realme",mainhead:"Realme",title:"Get the full list of Realme phones",
+    descr:"Looking for Realme phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"samsung",querypa:"mobileNames__brandName__brand_name=Samsung",mainhead:"Samsung",title:"Get the full list of Samsung phones",
+    descr:"Looking for Samsung phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"vivo",querypa:"mobileNames__brandName__brand_name=Vivo",mainhead:"Vivo",title:"Get the full list of Vivo phones",
+    descr:"Looking for Vivo phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
+    {urlname:"xiaomi",querypa:"mobileNames__brandName__brand_name=Xiaomi",mainhead:"Xiaomi",title:"Get the full list of Xiaomi phones",
+    descr:"Looking for Xiaomi phone!!! Visit now to Get the full details, price, reviews, videos and manymore...."},
   ]
 
   isLoading=false;
@@ -40,7 +56,7 @@ export class UrlPhoneListComponent implements OnInit {
   navigationpagenumber=1;
   countt;
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
+  constructor(private titleService: Title, private metaService: Meta, private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.changeContent();
@@ -50,15 +66,19 @@ export class UrlPhoneListComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       console.log(this.isLoading)
       this.isLoading = true;
-
+ 
       this.valueParm = params.get('otherLinks')
       console.log(this.valueParm)
       var takeArray = this.urls.find(takeUrl => takeUrl.urlname == this.valueParm);
       console.log(takeArray);
 
       if (takeArray === undefined){
-        takeArray = {urlname:"",querypa:"",mainhead:""}
+        takeArray = {urlname:"",querypa:"",mainhead:"",title:"",descr:""}
       }
+
+      this.titleService.setTitle(takeArray.title+" | gadgetin.in")
+      this.metaService.addTag({name: 'description', content: takeArray.descr})
+     
       this.getValueParams = takeArray.querypa
       // this.getValueParams = this.urls[this.valueParm]
       console.log(this.getValueParams)

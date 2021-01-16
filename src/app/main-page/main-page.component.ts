@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ApisService } from '../apis.service';
 
@@ -28,13 +29,16 @@ articleNewsParms;
 
 
   constructor(
-    private apiService: ApisService,private router: Router,private _snackBar: MatSnackBar
+    private titleService: Title, private metaService: Meta, private apiService: ApisService,private router: Router,private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
     this.latestPhones();
     this.BudgetPhone();
     this.ArticleandNews();
+    this.titleService.setTitle("Indian Gadget discovarable site | Search Mobiles | Compare Mobiles | Mobile price | Mobile Reiview | gadgetin.in")
+    this.metaService.addTag({name: 'description', content: "Worried about which gadgets to buy?? Let's explore all the details and news about gadgets in India."})
+      
   }
 
 

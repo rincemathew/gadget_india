@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApisService } from 'src/app/apis.service';
 
@@ -17,7 +18,7 @@ export class StaticArticlesComponent implements OnInit {
   vArticleName;
   getValueParams;
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
+  constructor(private titleService: Title, private metaService: Meta, private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.changeContent();
@@ -27,6 +28,8 @@ export class StaticArticlesComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.isLoading = true;
       this.vArticleName = params.get('articleName')
+      this.titleService.setTitle(this.vArticleName+" | gadgetin.in")
+      // this.metaService.addTag({name: 'description', content: ""})
       this.getValueParams = 'article_name=' + this.vArticleName
       // console.log(this.vArticleName + "bbbbbbba")
       this.getFullArticle();

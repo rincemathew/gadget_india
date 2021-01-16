@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ApisService } from 'src/app/apis.service';
 
@@ -26,7 +27,7 @@ export class PhoneListComponent implements OnInit {
   navigationpagenumber=1;
   countt;
 
-  constructor(private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
+  constructor(private titleService: Title, private metaService: Meta, private apiService: ApisService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.changeContent();
@@ -37,6 +38,9 @@ export class PhoneListComponent implements OnInit {
       console.log(this.isLoading)
       this.isLoading = true;
       console.log(this.isLoading)
+      this.titleService.setTitle("Find a phone | gadgetin.in")
+      this.metaService.addTag({name: 'description', content: "Lets start searching for a phone. Filter your thought and find a perfect phone for your budget."})
+      
       this.vBrandName = params.get('mobileNames__brandName__brand_name')
       this.vPhoneType = params.get('mobileNames__phone_type')
       this.vPriceGreater = params.get('mobileGeneral__price__gte')
