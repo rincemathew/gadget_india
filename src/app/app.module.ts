@@ -36,7 +36,7 @@ import { ArticlesModuleModule } from './articles-module/articles-module.module';
     MainPageComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,

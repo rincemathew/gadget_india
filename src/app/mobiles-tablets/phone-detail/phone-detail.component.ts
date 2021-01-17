@@ -44,7 +44,7 @@ export class PhoneDetailComponent implements OnInit, OnChanges {
       this.vMobileName = params.get('mobileName')
       this.vVariant = params.get('variant')
       this.titleService.setTitle("Get full details of "+this.vBrandName+" "+this.vMobileName+" | gadgetin.in")
-      this.metaService.addTag({name: 'description', content: "Get full details of "+this.vBrandName+" "+this.vMobileName+". Check out full specifications, news, reviews and compare with other phones | gadgetin.in"})
+      this.metaService.updateTag({name: 'description', content: "Get full details of "+this.vBrandName+" "+this.vMobileName+". Check out full specifications, news, reviews and compare with other phones | gadgetin.in"})
       console.log(this.vVariant)
       this.getValueParams = 'mobileNames__mobile_name_url=' + this.vMobileName + '&mobileNames__brandName__brand_name_url=' + this.vBrandName
       console.log(this.vVariant + "bbbbbbba")
