@@ -39,7 +39,7 @@ export class PhoneListComponent implements OnInit {
       this.isLoading = true;
       console.log(this.isLoading)
       this.titleService.setTitle("Find a phone | gadgetin.in")
-      this.metaService.addTag({name: 'description', content: "Lets start searching for a phone. Filter your thought and find a perfect phone for your budget."})
+      this.metaService.updateTag({name: 'description', content: "Lets start searching for a phone. Filter your thought and find a perfect phone for your budget."})
       
       this.vBrandName = params.get('mobileNames__brandName__brand_name')
       this.vPhoneType = params.get('mobileNames__phone_type')

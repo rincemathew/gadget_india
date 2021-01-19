@@ -77,7 +77,7 @@ export class UrlPhoneListComponent implements OnInit {
       }
 
       this.titleService.setTitle(takeArray.title+" | gadgetin.in")
-      this.metaService.addTag({name: 'description', content: takeArray.descr})
+      this.metaService.updateTag({name: 'description', content: takeArray.descr})
      
       this.getValueParams = takeArray.querypa
       // this.getValueParams = this.urls[this.valueParm]

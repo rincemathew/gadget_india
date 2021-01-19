@@ -28,7 +28,6 @@ export class DynamicArticleComponent implements OnInit {
       this.isLoading = true;
       this.vArticleName = params.get('articleName')
       this.titleService.setTitle(this.vArticleName+" | gadgetin.in")
-      // this.metaService.addTag({name: 'description', content: ""})
       this.getValueParams = 'article_name_url=' + this.vArticleName
       // console.log(this.vArticleName + "bbbbbbba")
       this.getFullArticle();
@@ -40,6 +39,7 @@ export class DynamicArticleComponent implements OnInit {
       data => {
         this.vArticleDemo = data;
         this.vArticle = this.vArticleDemo[0];
+        this.metaService.updateTag({name: 'description', content: this.vArticle.article_description+ " | gadgetin.in"})
         this.isLoading = false;
         // this.vColor = this.phone[0].variant_Color[0].mobile_color
         console.log(this.vArticle)

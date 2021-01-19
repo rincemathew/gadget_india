@@ -36,8 +36,8 @@ articleNewsParms;
     this.latestPhones();
     this.BudgetPhone();
     this.ArticleandNews();
-    this.titleService.setTitle("Indian Gadget discovarable site | Search Mobiles | Compare Mobiles | Mobile price | Mobile Reiview | gadgetin.in")
-    this.metaService.addTag({name: 'description', content: "Worried about which gadgets to buy?? Let's explore all the details and news about gadgets in India."})
+    this.titleService.setTitle("Indian Gadget discoverable site | Search Mobiles | Compare Mobiles | Mobile price | Mobile Review | gadgetin.in")
+    this.metaService.updateTag({name: 'description', content: "Worried about which gadgets to buy?? Let's explore all the details and news about gadgets in India."})
       
   }
 

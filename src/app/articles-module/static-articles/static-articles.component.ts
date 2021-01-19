@@ -41,6 +41,7 @@ export class StaticArticlesComponent implements OnInit {
       data => {
         this.vArticleDemo = data;
         this.vArticle = this.vArticleDemo[0];
+        this.metaService.updateTag({name: 'description', content: this.vArticle.article_description+ " | gadgetin.in"})
         this.isLoading = false;
         // this.vColor = this.phone[0].variant_Color[0].mobile_color
         console.log(this.vArticle)
