@@ -17,14 +17,4 @@ runtime: nodejs10
 # "start": "ng serve",
 # "start": "node dist/server.js",
 # gcloud app deploy --project=gadget-frontend-angular
-
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - coverage
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+# npm run build:ssr && npm run serve:ssr
