@@ -1,0 +1,9 @@
+.mat-option {
+    height: unset;
+    line-height: unset;
+    padding: 5px;
+  }
+
+ img{
+   max-height: 250px;
+ }

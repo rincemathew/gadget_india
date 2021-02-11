@@ -1,1 +1,580 @@
-<p>phone-compare works!</p>
+<mat-progress-bar *ngIf="isLoadingOne" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingSecond" mode="indeterminate"></mat-progress-bar>
+<div class="container">
+    <div>
+<h1>Compare Phone</h1>
+    </div>
+    <div>
+
+ 
+
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
+                                    [(ngModel)]="search_itemOne" (ngModelChange)="charChangeOne()"
+                                    [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let optOne of mobilesOne"
+                                        [value]="optOne.mobileNames.mobile_name"
+                                        (onSelectionChange)="selectMobileOne(optOne.mobileNames.brandName.brand_name_url,optOne.mobileNames.mobile_name_url,optOne.mobile_variants_url)">
+                                        <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                    src="{{optOne.mobileNames.mobile_image}}" alt="Chania">
+                                            </div>
+                                            <div class="col-auto">{{optOne.mobileNames.brandName.brand_name}}
+                                                {{optOne.mobileNames.mobile_name}}<br>
+                                                <small>{{optOne.mobile_variants}}</small>
+                                            </div>
+                                            <div class="col-auto">{{optOne.mobileGeneral.price}}</div>
+                                        </div>
+                                    </mat-option>
+                                </mat-autocomplete>
+
+                            </td>
+                            <td>
+
+                                <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
+                                    [(ngModel)]="search_itemTwo" (ngModelChange)="charChangeTwo()"
+                                    [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let optTwo of mobilesTwo"
+                                        [value]="optTwo.mobileNames.mobile_name"
+                                        (onSelectionChange)="selectMobileTwo(optTwo.mobileNames.brandName.brand_name_url,optTwo.mobileNames.mobile_name_url,optTwo.mobile_variants_url)">
+                                        <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                    src="{{optTwo.mobileNames.mobile_image}}" alt="Chania">
+                                            </div>
+                                            <div class="col-auto">{{optTwo.mobileNames.brandName.brand_name}}
+                                                {{optTwo.mobileNames.mobile_name}}<br>
+                                                <small>{{optTwo.mobile_variants}}</small>
+                                            </div>
+                                            <div class="col-auto">{{optTwo.mobileGeneral.price}}</div>
+                                        </div>
+                                    </mat-option>
+                                </mat-autocomplete>
+
+                            </td>
+                            <td>
+
+                                <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
+                                [(ngModel)]="search_itemThree" (ngModelChange)="charChangeThree()"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let optThree of mobilesThree"
+                                    [value]="optThree.mobileNames.mobile_name"
+                                    (onSelectionChange)="selectMobileThree(optThree.mobileNames.brandName.brand_name_url,optThree.mobileNames.mobile_name_url,optThree.mobile_variants_url)">
+                                    <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                src="{{optThree.mobileNames.mobile_image}}" alt="Chania">
+                                        </div>
+                                        <div class="col-auto">{{optThree.mobileNames.brandName.brand_name}}
+                                            {{optThree.mobileNames.mobile_name}}<br>
+                                            <small>{{optThree.mobile_variants}}</small>
+                                        </div>
+                                        <div class="col-auto">{{optThree.mobileGeneral.price}}</div>
+                                    </div>
+                                </mat-option>
+                            </mat-autocomplete>
+
+                            </td>
+                            <td>
+
+                                <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
+                                [(ngModel)]="search_itemFour" (ngModelChange)="charChangeFour()"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let optFour of mobilesFour"
+                                    [value]="optFour.mobileNames.mobile_name"
+                                    (onSelectionChange)="selectMobileFour(optFour.mobileNames.brandName.brand_name_url,optFour.mobileNames.mobile_name_url,optFour.mobile_variants_url)">
+                                    <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                src="{{optFour.mobileNames.mobile_image}}" alt="Chania">
+                                        </div>
+                                        <div class="col-auto">{{optFour.mobileNames.brandName.brand_name}}
+                                            {{optFour.mobileNames.mobile_name}}<br>
+                                            <small>{{optFour.mobile_variants}}</small>
+                                        </div>
+                                        <div class="col-auto">{{optFour.mobileGeneral.price}}</div>
+                                    </div>
+                                </mat-option>
+                            </mat-autocomplete>
+
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        {{VariantOne?.mobileNames.brandName.brand_name}} {{VariantOne?.mobileNames.mobile_name}}
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <img class="img-fluid" [src]="VariantOne?.variant_Image[0].variant_image"
+                                        onerror="this.src='/assets/icons/phonealt.png';" alt="mobile image"></div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    {{VariantOne?.mobile_variants}}
+                                </div>
+                                
+                            </th>
+                            <th scope="col">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        {{VariantTwo?.mobileNames.brandName.brand_name}} {{VariantTwo?.mobileNames.mobile_name}}
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <img class="img-fluid" [src]="VariantTwo?.variant_Image[0].variant_image"
+                                        onerror="this.src='/assets/icons/phonealt.png';" alt="mobile image"></div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    {{VariantTwo?.mobile_variants}}
+                                </div>
+                            </th>
+                            <th scope="col">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        {{VariantThree?.mobileNames.brandName.brand_name}} {{VariantThree?.mobileNames.mobile_name}}
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <img class="img-fluid" [src]="VariantThree?.variant_Image[0].variant_image"
+                                        onerror="this.src='/assets/icons/phonealt.png';" alt="mobile image"></div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    {{VariantThree?.mobile_variants}}
+                                </div>
+                            </th>
+                            <th scope="col">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        {{VariantFour?.mobileNames.brandName.brand_name}} {{VariantFour?.mobileNames.mobile_name}}
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <img class="img-fluid" [src]="VariantFour?.variant_Image[0].variant_image"
+                                        onerror="this.src='/assets/icons/phonealt.png';" alt="mobile image"></div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    {{VariantFour?.mobile_variants}}
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th colspan="5" scope="row">Key Specs</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price</th>
+                            <td>{{VariantOne?.mobileNames.mobile_name}}</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">RAM</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Memory</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Processor</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Selfie Camera</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Rear Camera</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Battery</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Display Size</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">General</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Brand</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Model</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">OS</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">OS Version</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UI Version</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Release Date</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Slots</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Weight</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dimensions</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fingerprint Sensor</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fast Charger</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Performance</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">RAM</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Processor</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Processor Build</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Clock Speed</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Storage</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Device Storage</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Expandable Memory</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Expandable Capacity</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">OTG Support</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sim Slot Type</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Slots</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Camera</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Primary Camera</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Primary Cam Features</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Secondary Camera</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Secondary Cam Features</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Battery</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Capacity</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Type</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fast Charger</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Charger Type</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Replaceable</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Display</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Screen Size</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Resolutions</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Resolution Type</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Display Type</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">GPU</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Other Features</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Connectivity</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">USB Type C</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">GPS</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SAR Value</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bluetooth</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Wi-Fi</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Sensors</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fingerprint Sensor</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fingerprint Position</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Other Sensors</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="row">Other Features</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Other Features</th>
+                            <td>1 dfvxc</td>
+                            <td>2 vdfvd</td>
+                            <td>3 dfvd</td>
+                            <td>4 dfdf</td>
+                        </tr>
+                    </tbody>
+                </table> 
+    </div>
+</div>

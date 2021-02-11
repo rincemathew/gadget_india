@@ -13,7 +13,13 @@
 #
 # [START runtime]
 runtime: nodejs10
+
 # [END runtime]
+handlers:
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
 # "start": "ng serve",
 # "start": "node dist/server.js",
 # gcloud app deploy --project=gadget-frontend-angular

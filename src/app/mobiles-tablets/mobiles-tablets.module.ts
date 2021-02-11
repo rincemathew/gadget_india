@@ -11,6 +11,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UrlPhoneListComponent } from './url-phone-list/url-phone-list.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [PhoneListComponent, PhoneDetailComponent, PhoneCompareComponent, UrlPhoneListComponent],
@@ -19,8 +21,10 @@ import { UrlPhoneListComponent } from './url-phone-list/url-phone-list.component
     PhoneRoutingModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     MatSelectModule,
     FormsModule,
+    MatProgressBarModule,
     MatSnackBarModule,
   ]
 })
