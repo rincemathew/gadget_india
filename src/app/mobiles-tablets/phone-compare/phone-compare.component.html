@@ -1,7 +1,13 @@
 <mat-progress-bar *ngIf="isLoadingOne" mode="indeterminate"></mat-progress-bar>
-<mat-progress-bar *ngIf="isLoadingSecond" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingOne1" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingTwo" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingTwo1" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingThree" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingThree1" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingFour" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar *ngIf="isLoadingFour1" mode="indeterminate"></mat-progress-bar>
 <div class="container">
-    <div>
+    <div style="padding-top: 10px;">
 <h1>Compare Phone</h1>
     </div>
     <div>
@@ -12,12 +18,14 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="row"></th>
-                            <td>
+                            <th scope="row">Search</th>
+                            <td matAutocompleteOrigin #origin1="matAutocompleteOrigin">
+                                <div></div>
                                 <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
                                     [(ngModel)]="search_itemOne" (ngModelChange)="charChangeOne()"
-                                    [matAutocomplete]="auto">
-                                <mat-autocomplete #auto="matAutocomplete">
+                                    [matAutocomplete]="auto1"
+                                    [matAutocompleteConnectedTo]="origin1">
+                                <mat-autocomplete #auto1="matAutocomplete">
                                     <mat-option *ngFor="let optOne of mobilesOne"
                                         [value]="optOne.mobileNames.mobile_name"
                                         (onSelectionChange)="selectMobileOne(optOne.mobileNames.brandName.brand_name_url,optOne.mobileNames.mobile_name_url,optOne.mobile_variants_url)">
@@ -25,24 +33,27 @@
                                         <div class="row">
                                             <div class="col-auto">
                                                 <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                onerror="this.src='/assets/icons/phonealt2.png';"
                                                     src="{{optOne.mobileNames.mobile_image}}" alt="Chania">
                                             </div>
                                             <div class="col-auto">{{optOne.mobileNames.brandName.brand_name}}
                                                 {{optOne.mobileNames.mobile_name}}<br>
+                                                {{optOne.mobileGeneral.price}}<br>
                                                 <small>{{optOne.mobile_variants}}</small>
                                             </div>
-                                            <div class="col-auto">{{optOne.mobileGeneral.price}}</div>
+                                            <!-- <div class="col-auto">{{optOne.mobileGeneral.price}}</div> -->
                                         </div>
                                     </mat-option>
                                 </mat-autocomplete>
 
                             </td>
-                            <td>
+                            <td matAutocompleteOrigin #origin2="matAutocompleteOrigin">
 
                                 <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
                                     [(ngModel)]="search_itemTwo" (ngModelChange)="charChangeTwo()"
-                                    [matAutocomplete]="auto">
-                                <mat-autocomplete #auto="matAutocomplete">
+                                    [matAutocomplete]="auto2"
+                                    [matAutocompleteConnectedTo]="origin2">
+                                <mat-autocomplete #auto2="matAutocomplete">
                                     <mat-option *ngFor="let optTwo of mobilesTwo"
                                         [value]="optTwo.mobileNames.mobile_name"
                                         (onSelectionChange)="selectMobileTwo(optTwo.mobileNames.brandName.brand_name_url,optTwo.mobileNames.mobile_name_url,optTwo.mobile_variants_url)">
@@ -50,63 +61,69 @@
                                         <div class="row">
                                             <div class="col-auto">
                                                 <img style="max-height:40px; width:auto;" class="img-fluid"
+                                                onerror="this.src='/assets/icons/phonealt2.png';"
                                                     src="{{optTwo.mobileNames.mobile_image}}" alt="Chania">
                                             </div>
                                             <div class="col-auto">{{optTwo.mobileNames.brandName.brand_name}}
                                                 {{optTwo.mobileNames.mobile_name}}<br>
+                                                {{optTwo.mobileGeneral.price}}<br>
                                                 <small>{{optTwo.mobile_variants}}</small>
                                             </div>
-                                            <div class="col-auto">{{optTwo.mobileGeneral.price}}</div>
+                                            <!-- <div class="col-auto">{{optTwo.mobileGeneral.price}}</div> -->
                                         </div>
                                     </mat-option>
                                 </mat-autocomplete>
 
                             </td>
-                            <td>
+                            <td matAutocompleteOrigin #origin3="matAutocompleteOrigin">
 
                                 <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
                                 [(ngModel)]="search_itemThree" (ngModelChange)="charChangeThree()"
-                                [matAutocomplete]="auto">
-                            <mat-autocomplete #auto="matAutocomplete">
+                                [matAutocomplete]="auto3"
+                                [matAutocompleteConnectedTo]="origin3">
+                            <mat-autocomplete #auto3="matAutocomplete">
                                 <mat-option *ngFor="let optThree of mobilesThree"
                                     [value]="optThree.mobileNames.mobile_name"
                                     (onSelectionChange)="selectMobileThree(optThree.mobileNames.brandName.brand_name_url,optThree.mobileNames.mobile_name_url,optThree.mobile_variants_url)">
-                                    <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
                                     <div class="row">
                                         <div class="col-auto">
                                             <img style="max-height:40px; width:auto;" class="img-fluid"
+                                            onerror="this.src='/assets/icons/phonealt2.png';"
                                                 src="{{optThree.mobileNames.mobile_image}}" alt="Chania">
                                         </div>
                                         <div class="col-auto">{{optThree.mobileNames.brandName.brand_name}}
                                             {{optThree.mobileNames.mobile_name}}<br>
+                                            {{optThree.mobileGeneral.price}}<br>
                                             <small>{{optThree.mobile_variants}}</small>
                                         </div>
-                                        <div class="col-auto">{{optThree.mobileGeneral.price}}</div>
+                                        <!-- <div class="col-auto">{{optThree.mobileGeneral.price}}</div> -->
                                     </div>
                                 </mat-option>
                             </mat-autocomplete>
 
                             </td>
-                            <td>
+                            <td matAutocompleteOrigin #origin4="matAutocompleteOrigin">
 
                                 <input type="text" class="form-control" placeholder="Search Mobiles" name="search"
                                 [(ngModel)]="search_itemFour" (ngModelChange)="charChangeFour()"
-                                [matAutocomplete]="auto">
-                            <mat-autocomplete #auto="matAutocomplete">
+                                [matAutocomplete]="auto4"
+                                [matAutocompleteConnectedTo]="origin4">
+                            <mat-autocomplete #auto4="matAutocomplete">
                                 <mat-option *ngFor="let optFour of mobilesFour"
                                     [value]="optFour.mobileNames.mobile_name"
                                     (onSelectionChange)="selectMobileFour(optFour.mobileNames.brandName.brand_name_url,optFour.mobileNames.mobile_name_url,optFour.mobile_variants_url)">
-                                    <!-- <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar> -->
                                     <div class="row">
                                         <div class="col-auto">
                                             <img style="max-height:40px; width:auto;" class="img-fluid"
+                                            onerror="this.src='/assets/icons/phonealt2.png';"
                                                 src="{{optFour.mobileNames.mobile_image}}" alt="Chania">
                                         </div>
                                         <div class="col-auto">{{optFour.mobileNames.brandName.brand_name}}
                                             {{optFour.mobileNames.mobile_name}}<br>
+                                            {{optFour.mobileGeneral.price}}<br>
                                             <small>{{optFour.mobile_variants}}</small>
                                         </div>
-                                        <div class="col-auto">{{optFour.mobileGeneral.price}}</div>
+                                        <!-- <div class="col-auto">{{optFour.mobileGeneral.price}}</div> -->
                                     </div>
                                 </mat-option>
                             </mat-autocomplete>
@@ -178,401 +195,422 @@
                         </tr>
                         <tr>
                             <th scope="row">Price</th>
-                            <td>{{VariantOne?.mobileNames.mobile_name}}</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.price==null ? '':'Rs '}}{{VariantOne?.mobileGeneral.price}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.price==null ? '':'Rs '}}{{VariantTwo?.mobileGeneral.price}}</td>
+                            <td>{{VariantThree?.mobileGeneral.price==null ? '':'Rs '}}{{VariantThree?.mobileGeneral.price}}</td>
+                            <td>{{VariantFour?.mobileGeneral.price==null ? '':'Rs '}}{{VariantFour?.mobileGeneral.price}}</td>
                         </tr>
                         <tr>
                             <th scope="row">RAM</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.ram}}{{VariantOne?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.ram}}{{VariantTwo?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantThree?.mobilePerformance.ram}}{{VariantThree?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantFour?.mobilePerformance.ram}}{{VariantFour?.mobilePerformance.ram==null ? '':' GB'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Memory</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.device_storage}}{{VariantOne?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantTwo?.mobileStorage.device_storage}}{{VariantTwo?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantThree?.mobileStorage.device_storage}}{{VariantThree?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantFour?.mobileStorage.device_storage}}{{VariantFour?.mobileStorage.device_storage==null ? '':' GB'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Processor</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.processor}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.processor}}</td>
+                            <td>{{VariantThree?.mobilePerformance.processor}}</td>
+                            <td>{{VariantFour?.mobilePerformance.processor}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Selfie Camera</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.secondary_camera}}{{VariantOne?.mobileCamera.secondary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantTwo?.mobileCamera.secondary_camera}}{{VariantTwo?.mobileCamera.secondary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantThree?.mobileCamera.secondary_camera}}{{VariantThree?.mobileCamera.secondary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantFour?.mobileCamera.secondary_camera}}{{VariantFour?.mobileCamera.secondary_camera==null ? '':' MP'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Rear Camera</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.primary_camera}}{{VariantOne?.mobileCamera.primary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantTwo?.mobileCamera.primary_camera}}{{VariantTwo?.mobileCamera.primary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantThree?.mobileCamera.primary_camera}}{{VariantThree?.mobileCamera.primary_camera==null ? '':' MP'}}</td>
+                            <td>{{VariantFour?.mobileCamera.primary_camera}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' MP'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Battery</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.battery_capacity}}{{VariantOne?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
+                            <td>{{VariantTwo?.mobileBattery.battery_capacity}}{{VariantTwo?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
+                            <td>{{VariantThree?.mobileBattery.battery_capacity}}{{VariantThree?.mobileBattery.battery_capacitya==null ? '':' mAh'}}</td>
+                            <td>{{VariantFour?.mobileBattery.battery_capacity}}{{VariantFour?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Display Size</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantThree?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantFour?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">General</th>
                         </tr>
                         <tr>
                             <th scope="row">Brand</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileNames.brandName.brand_name}}</td>
+                            <td>{{VariantTwo?.mobileNames.brandName.brand_name}}</td>
+                            <td>{{VariantThree?.mobileNames.brandName.brand_name}}</td>
+                            <td>{{VariantFour?.mobileNames.brandName.brand_name}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Model</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileNames.mobile_name}}</td>
+                            <td>{{VariantTwo?.mobileNames.mobile_name}}</td>
+                            <td>{{VariantThree?.mobileNames.mobile_name}}</td>
+                            <td>{{VariantFour?.mobileNames.mobile_name}}</td>
                         </tr>
                         <tr>
                             <th scope="row">OS</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.os}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.os}}</td>
+                            <td>{{VariantThree?.mobileGeneral.os}}</td>
+                            <td>{{VariantFour?.mobileGeneral.os}}</td>
                         </tr>
                         <tr>
                             <th scope="row">OS Version</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.os_version}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.os_version}}</td>
+                            <td>{{VariantThree?.mobileGeneral.os_version}}</td>
+                            <td>{{VariantFour?.mobileGeneral.os_version}}</td>
                         </tr>
                         <tr>
                             <th scope="row">UI Version</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.UI_version}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.UI_version}}</td>
+                            <td>{{VariantThree?.mobileGeneral.UI_version}}</td>
+                            <td>{{VariantFour?.mobileGeneral.UI_version}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Release Date</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.release_date | slice: 0:10}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.release_date | slice: 0:10}}</td>
+                            <td>{{VariantThree?.mobileGeneral.release_date | slice: 0:10}}</td>
+                            <td>{{VariantFour?.mobileGeneral.release_date | slice: 0:10}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Slots</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.slots}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.slots}}</td>
+                            <td>{{VariantThree?.mobileGeneral.slots}}</td>
+                            <td>{{VariantFour?.mobileGeneral.slots}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Weight</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.weight}}{{VariantOne?.mobileGeneral.weight==null ? '':' g'}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.weight}}{{VariantTwo?.mobileGeneral.weight==null ? '':' g'}}</td>
+                            <td>{{VariantThree?.mobileGeneral.weight}}{{VariantThree?.mobileGeneral.weight==null ? '':' g'}}</td>
+                            <td>{{VariantFour?.mobileGeneral.weight}}{{VariantFour?.mobileGeneral.weight==null ? '':' g'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Dimensions</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.dimensions}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.dimensions}}</td>
+                            <td>{{VariantThree?.mobileGeneral.dimensions}}</td>
+                            <td>{{VariantFour?.mobileGeneral.dimensions}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Fingerprint Sensor</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileSensor.fingerprint_sensor==null ? '' :(VariantOne?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileSensor.fingerprint_sensor==null ? '' :(VariantTwo?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileSensor.fingerprint_sensor==null ? '' :(VariantThree?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileSensor.fingerprint_sensor==null ? '' :(VariantFour?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Fast Charger</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.fast_charger==null ? '' :(VariantOne?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileBattery.fast_charger==null ? '' :(VariantTwo?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileBattery.fast_charger==null ? '' :(VariantThree?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileBattery.fast_charger==null ? '' :(VariantFour?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Performance</th>
                         </tr>
                         <tr>
                             <th scope="row">RAM</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.ram}}{{VariantOne?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.ram}}{{VariantTwo?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantThree?.mobilePerformance.ram}}{{VariantThree?.mobilePerformance.ram==null ? '':' GB'}}</td>
+                            <td>{{VariantFour?.mobilePerformance.ram}}{{VariantFour?.mobilePerformance.ram==null ? '':' GB'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Processor</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.processor}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.processor}}</td>
+                            <td>{{VariantThree?.mobilePerformance.processor}}</td>
+                            <td>{{VariantFour?.mobilePerformance.processor}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Processor Build</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.processor_company}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.processor_company}}</td>
+                            <td>{{VariantThree?.mobilePerformance.processor_company}}</td>
+                            <td>{{VariantFour?.mobilePerformance.processor_company}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Clock Speed</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobilePerformance.clock_speed}}{{VariantOne?.mobilePerformance.clock_speed==null ? '':' Hz'}}</td>
+                            <td>{{VariantTwo?.mobilePerformance.clock_speed}}{{VariantTwo?.mobilePerformance.clock_speed==null ? '':' Hz'}}</td>
+                            <td>{{VariantThree?.mobilePerformance.clock_speed}}{{VariantThree?.mobilePerformance.clock_speed==null ? '':' Hz'}}</td>
+                            <td>{{VariantFour?.mobilePerformance.clock_speed}}{{VariantFour?.mobilePerformance.clock_speed==null ? '':' Hz'}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Storage</th>
                         </tr>
                         <tr>
                             <th scope="row">Device Storage</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.device_storage}}{{VariantOne?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantTwo?.mobileStorage.device_storage}}{{VariantTwo?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantThree?.mobileStorage.device_storage}}{{VariantThree?.mobileStorage.device_storage==null ? '':' GB'}}</td>
+                            <td>{{VariantFour?.mobileStorage.device_storage}}{{VariantFour?.mobileStorage.device_storage==null ? '':' GB'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Expandable Memory</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.expandable_memory==null ? '' :(VariantOne?.mobileStorage.expandable_memory==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileStorage.expandable_memory==null ? '' :(VariantTwo?.mobileStorage.expandable_memory==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileStorage.expandable_memory==null ? '' :(VariantThree?.mobileStorage.expandable_memory==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileStorage.expandable_memory==null ? '' :(VariantFour?.mobileStorage.expandable_memory==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Expandable Capacity</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.expandable_memory_capacity}}{{VariantOne?.mobileStorage.expandable_memory_capacity==null ? '':' GB'}}</td>
+                            <td>{{VariantTwo?.mobileStorage.expandable_memory_capacity}}{{VariantTwo?.mobileStorage.expandable_memory_capacity==null ? '':' GB'}}</td>
+                            <td>{{VariantThree?.mobileStorage.expandable_memory_capacity}}{{VariantThree?.mobileStorage.expandable_memory_capacity==null ? '':' GB'}}</td>
+                            <td>{{VariantFour?.mobileStorage.expandable_memory_capacity}}{{VariantFour?.mobileStorage.expandable_memory_capacity==null ? '':' GB'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">OTG Support</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.OTG_support}}</td>
+                            <td>{{VariantTwo?.mobileStorage.OTG_support}}</td>
+                            <td>{{VariantThree?.mobileStorage.OTG_support}}</td>
+                            <td>{{VariantFour?.mobileStorage.OTG_support}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Sim Slot Type</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileStorage.sim_slot_type}}</td>
+                            <td>{{VariantTwo?.mobileStorage.sim_slot_type}}</td>
+                            <td>{{VariantThree?.mobileStorage.sim_slot_type}}</td>
+                            <td>{{VariantFour?.mobileStorage.sim_slot_type}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Slots</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileGeneral.slots}}</td>
+                            <td>{{VariantTwo?.mobileGeneral.slots}}</td>
+                            <td>{{VariantThree?.mobileGeneral.slots}}</td>
+                            <td>{{VariantFour?.mobileGeneral.slots}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Camera</th>
                         </tr>
                         <tr>
                             <th scope="row">Primary Camera</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.primary_camera_str}}</td>
+                            <td>{{VariantTwo?.mobileCamera.primary_camera_str}}</td>
+                            <td>{{VariantThree?.mobileCamera.primary_camera_str}}</td>
+                            <td>{{VariantFour?.mobileCamera.primary_camera_str}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Primary Cam Features</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.primary_camera_features}}</td>
+                            <td>{{VariantTwo?.mobileCamera.primary_camera_features}}</td>
+                            <td>{{VariantThree?.mobileCamera.primary_camera_features}}</td>
+                            <td>{{VariantFour?.mobileCamera.primary_camera_features}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Secondary Camera</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.secondary_camera_str}}</td>
+                            <td>{{VariantTwo?.mobileCamera.secondary_camera_str}}</td>
+                            <td>{{VariantThree?.mobileCamera.secondary_camera_str}}</td>
+                            <td>{{VariantFour?.mobileCamera.secondary_camera_str}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Secondary Cam Features</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileCamera.secondary_camera_features}}</td>
+                            <td>{{VariantTwo?.mobileCamera.secondary_camera_features}}</td>
+                            <td>{{VariantThree?.mobileCamera.secondary_camera_features}}</td>
+                            <td>{{VariantFour?.mobileCamera.secondary_camera_features}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Battery</th>
                         </tr>
                         <tr>
                             <th scope="row">Capacity</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.battery_capacity}}{{VariantOne?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
+                            <td>{{VariantTwo?.mobileBattery.battery_capacity}}{{VariantTwo?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
+                            <td>{{VariantThree?.mobileBattery.battery_capacity}}{{VariantThree?.mobileBattery.battery_capacitya==null ? '':' mAh'}}</td>
+                            <td>{{VariantFour?.mobileBattery.battery_capacity}}{{VariantFour?.mobileBattery.battery_capacity==null ? '':' mAh'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Type</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.battery_type}}</td>
+                            <td>{{VariantTwo?.mobileBattery.battery_type}}</td>
+                            <td>{{VariantThree?.mobileBattery.battery_type}}</td>
+                            <td>{{VariantFour?.mobileBattery.battery_type}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Fast Charger</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.fast_charger==null ? '' :(VariantOne?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileBattery.fast_charger==null ? '' :(VariantTwo?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileBattery.fast_charger==null ? '' :(VariantThree?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileBattery.fast_charger==null ? '' :(VariantFour?.mobileBattery.fast_charger==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Charger Type</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.fast_charging}}</td>
+                            <td>{{VariantTwo?.mobileBattery.fast_charging}}</td>
+                            <td>{{VariantThree?.mobileBattery.fast_charging}}</td>
+                            <td>{{VariantFour?.mobileBattery.fast_charging}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Replaceable</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileBattery.replaceable==null ? '' :(VariantOne?.mobileBattery.replaceable==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileBattery.replaceable==null ? '' :(VariantTwo?.mobileBattery.replaceable==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileBattery.replaceable==null ? '' :(VariantThree?.mobileBattery.replaceable==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileBattery.replaceable==null ? '' :(VariantFour?.mobileBattery.replaceable==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Display</th>
                         </tr>
                         <tr>
                             <th scope="row">Screen Size</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantThree?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
+                            <td>{{VariantFour?.mobileDisplay.screen_size}}{{VariantFour?.mobileCamera.primary_camera==null ? '':' inch'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Resolutions</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.resolution}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.resolution}}</td>
+                            <td>{{VariantThree?.mobileDisplay.resolution}}</td>
+                            <td>{{VariantFour?.mobileDisplay.resolution}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Resolution Type</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.resolution_type}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.resolution_type}}</td>
+                            <td>{{VariantThree?.mobileDisplay.resolution_type}}</td>
+                            <td>{{VariantFour?.mobileDisplay.resolution_type}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Display Type</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.display_type}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.display_type}}</td>
+                            <td>{{VariantThree?.mobileDisplay.display_type}}</td>
+                            <td>{{VariantFour?.mobileDisplay.display_type}}</td>
                         </tr>
                         <tr>
                             <th scope="row">GPU</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.GPU}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.GPU}}</td>
+                            <td>{{VariantThree?.mobileDisplay.GPU}}</td>
+                            <td>{{VariantFour?.mobileDisplay.GPU}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Other Features</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileDisplay.display_features}}</td>
+                            <td>{{VariantTwo?.mobileDisplay.display_features}}</td>
+                            <td>{{VariantThree?.mobileDisplay.display_features}}</td>
+                            <td>{{VariantFour?.mobileDisplay.display_features}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Connectivity</th>
                         </tr>
                         <tr>
+                            <th scope="row">5G</th>
+                            <td>{{VariantOne?.mobileConnectivity.mobile_connectivity_details[0].five_g==null ? '' :(VariantOne?.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.mobile_connectivity_details[0].five_g==null ? '' :(VariantTwo?.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.mobile_connectivity_details[0].five_g==null ? '' :(VariantThree?.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.mobile_connectivity_details[0].five_g==null ? '' :(VariantFour?.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES': 'NO')}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4G</th>
+                            <td>{{VariantOne?.mobileConnectivity.mobile_connectivity_details[0].four_g==null ? '' :(VariantOne?.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.mobile_connectivity_details[0].four_g==null ? '' :(VariantTwo?.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.mobile_connectivity_details[0].four_g==null ? '' :(VariantThree?.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.mobile_connectivity_details[0].four_g==null ? '' :(VariantFour?.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES': 'NO')}}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">USB Type C</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileConnectivity.USB_type_c==null ? '' :(VariantOne?.mobileConnectivity.USB_type_c==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.USB_type_c==null ? '' :(VariantTwo?.mobileConnectivity.USB_type_c==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.USB_type_c==null ? '' :(VariantThree?.mobileConnectivity.USB_type_c==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.USB_type_c==null ? '' :(VariantFour?.mobileConnectivity.USB_type_c==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">GPS</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileConnectivity.GPS==null ? '' :(VariantOne?.mobileConnectivity.GPS==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.GPS==null ? '' :(VariantTwo?.mobileConnectivity.GPS==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.GPS==null ? '' :(VariantThree?.mobileConnectivity.GPS==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.GPS==null ? '' :(VariantFour?.mobileConnectivity.GPS==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">SAR Value</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileConnectivity.SAR_value}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.SAR_value}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.SAR_value}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.SAR_value}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Audio Jack</th>
+                            <td>{{VariantOne?.mobileConnectivity.audio_jack}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.audio_jack}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.audio_jack}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.audio_jack}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Bluetooth</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileConnectivity.bluetooth}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.bluetooth}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.bluetooth}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.bluetooth}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Wi-Fi</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileConnectivity.wi_fi}}</td>
+                            <td>{{VariantTwo?.mobileConnectivity.wi_fi}}</td>
+                            <td>{{VariantThree?.mobileConnectivity.wi_fi}}</td>
+                            <td>{{VariantFour?.mobileConnectivity.wi_fi}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Sensors</th>
                         </tr>
                         <tr>
                             <th scope="row">Fingerprint Sensor</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileSensor.fingerprint_sensor==null ? '' :(VariantOne?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantTwo?.mobileSensor.fingerprint_sensor==null ? '' :(VariantTwo?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantThree?.mobileSensor.fingerprint_sensor==null ? '' :(VariantThree?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
+                            <td>{{VariantFour?.mobileSensor.fingerprint_sensor==null ? '' :(VariantFour?.mobileSensor.fingerprint_sensor==true ? 'YES': 'NO')}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Fingerprint Position</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileSensor.fingerprint_position}}</td>
+                            <td>{{VariantTwo?.mobileSensor.fingerprint_position}}</td>
+                            <td>{{VariantThree?.mobileSensor.fingerprint_position}}</td>
+                            <td>{{VariantFour?.mobileSensor.fingerprint_position}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Other Sensors</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.mobileSensor.other_sensor}}</td>
+                            <td>{{VariantTwo?.mobileSensor.other_sensor}}</td>
+                            <td>{{VariantThree?.mobileSensor.other_sensor}}</td>
+                            <td>{{VariantFour?.mobileSensor.other_sensor}}</td>
                         </tr>
                         <tr>
                             <th colspan="5" scope="row">Other Features</th>
                         </tr>
                         <tr>
                             <th scope="row">Other Features</th>
-                            <td>1 dfvxc</td>
-                            <td>2 vdfvd</td>
-                            <td>3 dfvd</td>
-                            <td>4 dfdf</td>
+                            <td>{{VariantOne?.otherFeature.other_Feature}}</td>
+                            <td>{{VariantTwo?.otherFeature.other_Feature}}</td>
+                            <td>{{VariantThree?.otherFeature.other_Feature}}</td>
+                            <td>{{VariantFour?.otherFeature.other_Feature}}</td>
                         </tr>
                     </tbody>
                 </table> 

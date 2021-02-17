@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ApisService } from 'src/app/apis.service';
 
@@ -10,41 +11,48 @@ import { ApisService } from 'src/app/apis.service';
 })
 export class PhoneCompareComponent implements OnInit {
 
-  getValueParams
-  isLoading
-  isLoadingSecond
+  getValueParams  
 
   search_itemOne
   mobileOne
   mobilesOne
   isLoadingOne
+  isLoadingOne1
   phoneOne
   VariantOne
+  titleone = ""
 
   search_itemTwo
   mobileTwo
   mobilesTwo
   isLoadingTwo
+  isLoadingTwo1
   phoneTwo
   VariantTwo
+  titletwo = ""
 
   search_itemThree
   mobileThree
   mobilesThree
   isLoadingThree
+  isLoadingThree1
   phoneThree
   VariantThree
+  titlethree = ""
 
   search_itemFour
   mobileFour
   mobilesFour
   isLoadingFour
+  isLoadingFour1
   phoneFour
   VariantFour
+  titlefour = ""
 
-  constructor(private apiService: ApisService,private router: Router,private _snackBar: MatSnackBar) { }
+  constructor(private titleService: Title, private metaService: Meta, private apiService: ApisService,private router: Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.titleservice();
   }
 
 
@@ -74,7 +82,9 @@ ColumnOne(){
 }
 
 selectMobileOne(brandName, mobileName, mobileVariant){
-  this.isLoadingSecond = true;
+  this.titleone = brandName+" "+mobileName
+  this.titleservice();
+  this.isLoadingOne1 = true;
   this.getValueParams = 'mobileNames__mobile_name_url=' + mobileName + '&mobileNames__brandName__brand_name_url=' + brandName
   // this.vVariantOne = mobileVariant
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
@@ -86,7 +96,7 @@ selectMobileOne(brandName, mobileName, mobileVariant){
             console.log(this.VariantOne)
           }
         }
-        this.isLoadingSecond = false;
+        this.isLoadingOne1 = false;
         // if (mobileVariant==null){
         //   this.vVariantOne = this.phoneOne[0].mobile_variants_url
         // }
@@ -97,7 +107,7 @@ selectMobileOne(brandName, mobileName, mobileVariant){
         console.log(error)
         // let snakeBarref = this._snackBar.open(error.message,"Reload",{duration: 50000});
         let snakeBarref = this._snackBar.open("something went wrong, check your internet connection", "Reload", { duration: 3000 });
-        this.isLoadingOne = false;
+        this.isLoadingOne1 = false;
 
         snakeBarref.onAction().subscribe(() => {
           window.location.reload();
@@ -127,6 +137,7 @@ ColumnTwo(){
       this.mobileTwo = data;
       this.mobilesTwo =this.mobileTwo.results
       this.isLoadingTwo= false;
+      console.log(this.mobilesTwo)
     },
     error=>console.log(error)
     
@@ -134,6 +145,9 @@ ColumnTwo(){
 }
 
 selectMobileTwo(brandName, mobileName, mobileVariant){
+  this.titletwo = " Vs "+brandName+" "+mobileName
+  this.titleservice();
+  this.isLoadingTwo1 = true;
   this.getValueParams = 'mobileNames__mobile_name_url=' + mobileName + '&mobileNames__brandName__brand_name_url=' + brandName
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
       data => {
@@ -143,11 +157,12 @@ selectMobileTwo(brandName, mobileName, mobileVariant){
             this.VariantTwo = val
           }
         }
+        this.isLoadingTwo1 = false;
       },
       error => {
         console.log(error)
         let snakeBarref = this._snackBar.open("something went wrong, check your internet connection", "Reload", { duration: 3000 });
-        this.isLoadingTwo = false;
+        this.isLoadingTwo1 = false;
         snakeBarref.onAction().subscribe(() => {
           window.location.reload();
         })
@@ -180,6 +195,9 @@ ColumnThree(){
 }
 
 selectMobileThree(brandName, mobileName, mobileVariant){
+  this.titlethree = " Vs "+brandName+" "+mobileName
+  this.titleservice();
+  this.isLoadingThree1 = true;
   this.getValueParams = 'mobileNames__mobile_name_url=' + mobileName + '&mobileNames__brandName__brand_name_url=' + brandName
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
       data => {
@@ -190,11 +208,12 @@ selectMobileThree(brandName, mobileName, mobileVariant){
             console.log(this.VariantThree)
           }
         }
+        this.isLoadingThree1 = false;
       },
       error => {
         console.log(error)
         let snakeBarref = this._snackBar.open("something went wrong, check your internet connection", "Reload", { duration: 3000 });
-        this.isLoadingThree = false;
+        this.isLoadingThree1 = false;
 
         snakeBarref.onAction().subscribe(() => {
           window.location.reload();
@@ -222,6 +241,8 @@ ColumnFour(){
       this.mobileFour = data;
       this.mobilesFour =this.mobileFour.results
       this.isLoadingFour= false;
+      console.log(this.mobilesOne)
+      console.log(this.mobilesFour)
     },
     error=>console.log(error)
     
@@ -229,6 +250,9 @@ ColumnFour(){
 }
 
 selectMobileFour(brandName, mobileName, mobileVariant){
+  this.titlefour = " Vs "+brandName+" "+mobileName
+  this.titleservice();
+  this.isLoadingFour1 = true;
   this.getValueParams = 'mobileNames__mobile_name_url=' + mobileName + '&mobileNames__brandName__brand_name_url=' + brandName
     this.apiService.get_full_mobile_details(this.getValueParams).subscribe(
       data => {
@@ -238,11 +262,12 @@ selectMobileFour(brandName, mobileName, mobileVariant){
             this.VariantFour = val
           }
         }
+        this.isLoadingFour1 = false;
       },
       error => {
         console.log(error)
         let snakeBarref = this._snackBar.open("something went wrong, check your internet connection", "Reload", { duration: 3000 });
-        this.isLoadingFour = false;
+        this.isLoadingFour1 = false;
 
         snakeBarref.onAction().subscribe(() => {
           window.location.reload();
@@ -251,5 +276,9 @@ selectMobileFour(brandName, mobileName, mobileVariant){
 
     );
 
+}
+titleservice(){ 
+  this.titleService.setTitle("Compare phones "+this.titleone+this.titletwo+this.titlethree+this.titlefour+" | gadgetin.in")
+  this.metaService.updateTag({name: 'description', content: "Compare "+this.titleone+this.titletwo+this.titlethree+this.titlefour+" and Get full details of Price, Camera, Performance, battery, expert reviews and decide which phone compatible for you  | gadgetin.in"})
 }
 }
