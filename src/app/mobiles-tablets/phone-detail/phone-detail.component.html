@@ -46,7 +46,8 @@
                                         <div style="float: right;">
                                             <mat-form-field appearance="fill">
                                                 <mat-select [(ngModel)]="vVariant">
-                                                    <mat-option *ngFor="let pho of phone" [value]="pho.mobile_variants_url">
+                                                    <mat-option *ngFor="let pho of phone"
+                                                        [value]="pho.mobile_variants_url">
                                                         {{pho.mobile_variants}}
                                                     </mat-option>
                                                 </mat-select>
@@ -168,7 +169,8 @@
                 </div>
                 <div class="padding">
                     <div class="white-color">
-                        <h1>{{pho.mobileNames.brandName.brand_name+' '}}{{pho.mobileNames.mobile_name+' Full Specifications'}}
+                        <h1>{{pho.mobileNames.brandName.brand_name+' '}}{{pho.mobileNames.mobile_name+' Full
+                            Specifications'}}
                         </h1>
                         <hr>
                         <div class="row">
@@ -265,10 +267,17 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Networks</th>
-                                            <td>{{'5G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].five_g==true ? 'YES' : 'NO')}}
-                                                {{' ,4G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].four_g==true ? 'YES' : 'NO')}}
-                                                {{' ,3G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].three_g==true ? 'YES' : 'NO')}}
-                                                {{' ,2G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].two_g==true ? 'YES' : 'NO')}}
+                                            <td>{{'5G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].five_g==true
+                                                ? 'YES' : 'NO')}}
+                                                {{'
+                                                ,4G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].four_g==true
+                                                ? 'YES' : 'NO')}}
+                                                {{'
+                                                ,3G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].three_g==true
+                                                ? 'YES' : 'NO')}}
+                                                {{'
+                                                ,2G:'+(pho.mobileConnectivity.mobile_connectivity_details[0].two_g==true
+                                                ? 'YES' : 'NO')}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -488,7 +497,8 @@
                                                 <b>VoLTE </b>{{connect.VoLTE==true ? 'YES':'NO'}}<br>
                                                 <b>4 G </b>{{connect.four_g==true ? 'YES':'NO'}}<br>
                                                 <b>3 G </b>{{connect.three_g==true ? 'YES':'NO'}}<br>
-                                                <b>2 G </b>{{connect.two_g==true ? 'YES':'NO'}}</td>
+                                                <b>2 G </b>{{connect.two_g==true ? 'YES':'NO'}}
+                                            </td>
                                         </tr>
 
                                     </tbody>
@@ -581,12 +591,123 @@
 
                                         </div>
 
+                                        <div [ngClass]="colo.price_variant.reliance_digital==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/reliancedigital.png" alt="reliance digital">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.reliance_digital}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.reliance_digital_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.tata_cliq==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/tatacliq.png" alt="tata cliq">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.tata_cliq}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.tata_cliq_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.mi_store==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/mi.png" alt="mi store">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.mi_store}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.mi_store_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.samsung==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/samsungbuy.png" alt="samsung">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.samsung}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.samsung_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.oppo==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/oppostore.png" alt="oppo">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.oppo}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.oppo_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.realme==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/realmestore.png" alt="realme">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.realme}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.realme_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div [ngClass]="colo.price_variant.vivo==null?'d-none':''">
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="img-fluid" src="/assets/images/vivostore.png" alt="vivo">
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <h2>{{colo.price_variant.vivo}}</h2>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-center align-self-center">
+                                                    <button (click)="goToLink(colo.price_variant.vivo_URL)"
+                                                        type="button" class="btn btn-primary">Check Out</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div [ngClass]="colo.price_variant.amazon==null?'d-none':''">
                                             <hr>
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <img class="img-fluid" src="/assets/images/amazon.png"
-                                                        alt="flipkart">
+                                                    <img class="img-fluid" src="/assets/images/amazon.png" alt="amazon">
                                                 </div>
                                                 <div class="col-4 d-flex justify-content-center align-self-center">
                                                     <h2>{{colo.price_variant.amazon}}</h2>
@@ -596,7 +717,6 @@
                                                         type="button" class="btn btn-primary">Check Out</button>
                                                 </div>
                                             </div>
-
                                         </div>
 
                                         <div>
@@ -608,15 +728,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="padding">
-                    <div class="white-color">
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
-                        {{pho.mobileDisplay.resolution}}<br>
-                    </div>
-                </div> -->
-
 
 
             </div>
